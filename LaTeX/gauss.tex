@@ -13,9 +13,19 @@
 % 	Prove A satisfies the useful conditions
 
 \begin{theorem}
-Define $M_p$ to be the number of solutions to the equation $x^3 + y^3 + z^3 = 0$ in the field $\fp$. Then,
+Define $M_p$ to be the number of projective solutions to the equation $x^3 + y^3 + z^3 = 0$ in the field $\fp$. Then,
 \begin{itemize}
-	\item if $p \not\equiv 1 \mod{3}$, this
-\item otherwise fu
+\item if $p \not\equiv 1 \mod{3}$, then $M_p = p + 1$.
+\item otherwise $p \equiv 1 \mod{3}$, and there exist integers $A$ and $B$ such that
+	$$4p = A^2 + 27B^2$$
+	Since $A^2 \equiv 1 \mod{3}$, $A \equiv \pm1 \mod{3}$. If we fix the sign of A so that $A \equiv 1 \mod{3}$, then
+	$$M_p = p + 1 + A$$
 \end{itemize}
 \end{theorem}
+
+\begin{proof}
+The proof of the two separate cases both rely on the same idea, but in the second case requires many more steps before the result is reached, and beginning the proof without an idea of what is to come can make it very hard to understand, as numerous objects are introduced. Therefore we will prove the first case, provide an outline of the proof second case and then finally supply the details.
+
+For both cases, the proof revolves around examining the homomorphism
+$$\varphi: \fp^{\times} \rightarrow \fp^{\times}, \qquad x \mapsto x^3$$
+\end{proof}
