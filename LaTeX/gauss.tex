@@ -43,4 +43,26 @@ Now in the first case, since 3 does not divide the order of $\fpu$, $\varphi$ is
 	10^3 = 10.
 \end{align*}
 This implies that every solution of $x + y + z = 0$ gives exactly one solution of $x^3 + y^3 + z^3 = 0$ by cube rooting each of $x,y,z$. Since $x + y + z = 0$ is the equation of a line in the projective plane, it has exactly $p+1$ solutions. This settles the first case.
+
+Now to outline what happens in the second case.
+\begin{itemize}
+\item We start off again by examining the homomorphism $\varphi$, and construct three sets $R$, $S$ and $T$ that together make up $\fp$
+\item By introducing a new notation, we then establish an initial expression for $M_p$
+\item Manipulate this expression
+\item Introduce two new objects, ``cubic Gauss sums'' and an as yet unknown polynomial, $f(t)$
+\item Calculate $f(t)$ and its discriminant
+\item Use this to update our expression for $M_p$ to its final form
+\item Prove that the expression has the necessary properties
+\end{itemize}
+So after getting an initial expression for $M_p$, we basically update it a lot through many smaller arguments, eventually arriving at the one we need.
+
+Since $p \equiv 1 \mod{3}$, 3 divides the order of $\fpu = p-1$, and so $\varphi$ is a homomorphism that is neither injective nor surjective. For example, in $\fp[7]$, we have:
+\begin{align*}
+	0^3 &= 0\\
+	1^3 = 3^3 = 9^3 &= 1\\
+	7^3 = 8^3 = 11^3 &= 5\\
+	2^3 = 5^3 = 6^3 &= 8\\
+	4^3 = 10^3 = 12^3 &= 12\\
+\end{align*}
+Now, we can introduce our sets $R$, $S$ and $T$.
 \end{proof}
