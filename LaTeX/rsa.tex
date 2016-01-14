@@ -1,13 +1,15 @@
 % This .tex file is the example rsa decryption. May need to modify this slightly depending on whether rsa has been introduced at this stage or not.
+% Perhaps change the example from year to a key to some other encryption scheme, as would be more realistic.
 
 Now that Lenstra's algorithm has been introduced, we can see a slightly contrived example of a typical use case. Remembering how the algorithm works, say we intercepted a message $M$ along with the public key $P = (e,N)$. If we were able to factor $N$, we would be able to deduce the decryption key, and thus read this and any future messages. 
 
 Let's see how this would work with an example. Say we knew that
 $$ M = 3103229009940552729864,\quad P = (65537, 3160853182090460427047) $$
-and we wanted to read $M$. If we apply Lenstra's algorithm to $N = 3160853182090460427047$, eventually, taking $(3,1)$ to be our initial point, the algorithm finds that with $b = 39850$, adding the two points
+and we wanted to read $M$. If we apply Lenstra's algorithm to $N = 3160853182090460427047$, eventually, with $(3,1)$ as our initial point, the algorithm finds that, with $b = 39850$, adding the two points
 $$(2191801374392476491053, 2332211434379395076998)\ \text{and}\ (406058948051076877967, 3156968592727602662096)$$
 is impossible, since 
 $$2191801374392476491053-406058948051076877967 = 1785742426341399613086$$ and $\gcd(1785742426341399613086, 3160853182090460427047) = 3992747141$. Of course, we don't mind that we can't add the two points, since $3992747141$ is a non-trivial factor of our modulus. A simple division then gives $N = 3992747141 \times 791648724667$. Because we know this is an RSA modulus, we know that this is the complete factorisation of $N$, but for completeness, a simple brute force check quickly shows that $p = 791648724667$ and $q = 3992747141$ are both prime.
 
 Now that we know this, we calculate $(p-1) \times (q-1) = 3160853181294818955240$ and then find the multiplicative inverse of $e = 65537$ modulo $3160853181294818955240$ with the euclidean algorithm. This turns out to be $146040609624497792033$, and we finally decrypt our message by taking
 $$ M^{146040609624497792033} \mod 3160853182090460427047 =2016 $$
+,so we see that whatever nefarious organisation we are spying on is communicating the current year.
