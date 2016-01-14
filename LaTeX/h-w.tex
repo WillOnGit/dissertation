@@ -1,0 +1,40 @@
+% This file will give the statement & example of the Hasse-Weil bound by verifying it on x^3 + x + 1 = 0 over f_7
+% Is it necessary to go through the method of finding the points??
+% When counting points, presumably it is necessary to include the point at infinity?
+
+\begin{theorem}
+For an elliptic curve $C$ over a finite field $\fp$, the number of points on $C = \#C(\fp) = p + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{p}$
+\end{theorem}
+\begin{sproof}
+	First, a remark; the statement above is actually a more specific statement of the theorem, which is more general. However, the most general definition requires defining the genus of an algebraic variety, which would be an inappropriate amount of detail for this manuscript, and so we stick to this more specific definition.
+	In a similar fashion, the proof of this theorem is also very technical, and so will be omitted. Those interested can consult...
+\end{sproof}
+We can test the Hasse-Weil estimate by calculating the number of points on an elliptic curve $C$ over a particular finite field $\fp$. For ease of calculation, we will take $\fp = \fp[7]$ and let $C : y^2 = x^3 + x + 1$. First, we write out the squares in $\fp[7]$:
+\begin{align*}
+0^2 = 0\\
+1^2 = 1\\
+2^2 = 4\\
+3^2 = 2\\
+4^2 = 2\\
+5^2 = 4\\
+6^2 = 1
+\end{align*}
+Then we write out $x^3+x+1$ and match to the relevant squares.
+\begin{align*}
+0^3 + 0 + 1 = 1\\
+1^3 + 1 + 1 = 3\\
+2^3 + 2 + 1 = 4\\
+3^3 + 3 + 1 = 3\\
+4^3 + 4 + 1 = 6\\
+5^3 + 5 + 1 = 5\\
+6^3 + 6 + 1 = 6
+\end{align*}
+Which leads us to the four points
+\begin{align*}
+(0,1)\\
+(0,6)\\
+(2,2)\\
+(2,5)
+\end{align*}
+The Hasse-Weil theorem gives $\#C(\fp[7]) = 7 + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{7}$, which bounds the number of points on $C$ as $8\pm5$, or $\#C(\fp[7]) \in \{3,4,\ldots,13\}$. Clearly, 5 % or 4 if you don't count big O?
+agrees with this estimate.
