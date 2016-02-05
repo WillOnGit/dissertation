@@ -115,4 +115,17 @@ Now we can substitute this into our initial expression as follows:
 	    &= \frac{9}{m}\left([RRR] + m\right)\\
 	    &= \frac{9[RTS]}{m}
 \end{align*}
+This is the end of our initial manipulations. We now proceed to use \emph{cubic gauss sums} to find an expression for $[RTS]$. Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
+$$\alpha_1 = \sum_{r\in R} \zeta^r,\quad \alpha_2 = \sum_{s\in S} \zeta^s,\quad \alpha_3 = \sum_{t\in T} \zeta^t$$
+These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $G(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
+$$ G(t) = (t-\alpha)(t-\beta)(t-\gamma) = t^3 - (\alpha + \beta + \gamma)t^2 + (\alpha \beta + \alpha \gamma + \beta \gamma)t - \alpha \beta \gamma $$
+For the coefficient of $t^2$, notice that
+$$ 0 = \zeta^p -1 = (\zeta - 1)(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) $$
+and since $\zeta-1 \neq 0$, $(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) = 0$. Therefore, $\alpha_1 + \alpha_2 + \alpha_3 = -1$, and the coefficient of $t^2 = 1$.
+
+To find the other coefficients, multiply two of the $a_i$s together, say $\alpha_2$ and $\alpha_3$. Then
+$$\alpha_2 \alpha_3 = \sum_{s\in S} \zeta^s \cdot \sum_{t\in T}\zeta^t=\sum_{s \in S, t\in T}\zeta^{s+t} = \sum_{x\in \fp}N_x \zeta^x$$
+where $N_x$ is the number of pairs $(s,t)$ with $s \in S$ and $t \in T$ such that $s+t=x$. For $r \in R$, notice that
+$$N_x = [ST{-x}] = [rS,rT,{-rx}]=[S,T,{-rx}]=N_{rx}$$
+which shows that $N_x$ depends only on the coset $R$,$S$ or $T$ in which $x$ lies.
 \end{proof}
