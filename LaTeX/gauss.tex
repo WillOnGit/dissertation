@@ -85,7 +85,7 @@ Now, if $xyz\neq0$, then the number of ways of writing $0$ as a sum of non-zero 
 $$\frac{27[RRR]}{p-1} = \frac{27[RRR]}{3m} = \frac{9[RRR]}{m}$$
 projective solutions where $xyz\neq0$.
 
-Now, when one of $x$, $y$ or $z$ is zero, say $x$, neither $y$ nor $z$ can be zero, as either being zero would force the other to also be zero, and the solution $(0,0,0)$ is not allowed in the projective plane. Thus there are $p-1$ choices for $y$, each of which gives three choices of $z$ (by solving $y^3 = -x^3$ and remembering that eachelement has three cube roots), which means there are $3(p-1)$ solutions when $x=0$. The same goes for $y$ and $z$ being zero, so we have a total of $9(p-1)$ solutions where $xyz=0$. However, again, we must divide through by $p-1$, so there are 9 projective solutions when $xyz=0$. This covers all cases, and so we have established that
+Now, when one of $x$, $y$ or $z$ is zero, say $x$, neither $y$ nor $z$ can be zero, as either being zero would force the other to also be zero, and the solution $(0,0,0)$ is not allowed in the projective plane. Thus there are $p-1$ choices for $y$, each of which gives three choices of $z$ (by solving $y^3 = -x^3$ and remembering that each element has three cube roots), which means there are $3(p-1)$ solutions when $x=0$. The same goes for $y$ and $z$ being zero, so we have a total of $9(p-1)$ solutions where $xyz=0$. However, again, we must divide through by $p-1$, so there are 9 projective solutions when $xyz=0$. This covers all cases, and so we have established that
 \begin{equation}
 M_p = \frac{9[RRR]}{m} + 9 = 9 \left(\frac{[RRR]}{m}+1\right) \label{g_initial}
 \end{equation}
@@ -106,9 +106,9 @@ Again using the dijoint union of $\fp$ and $[\fp TS] = m^2$ (for the same reason
 	[\fp TS] = [\{0\}TS] + [RTS] + [STS] + [TTS] = m^2 \label{g_manipulate3}
 \end{equation}
 Recall that $[STS] = [SST]$. Now notice two things, first, that $[\{0\}TS] = 0$, since $T = -T$, $S = -S$ and $T \cap S = \emptyset$. Secondly, $[RR\{0\}] = m$, since each element of $R$ has exactly one inverse, also in $R$. Combine these observations with substracting \eqref{g_manipulate2} from \eqref{g_manipulate3} and we end up with
-\begin{equation}
+\begin{equation*}
 	[RTS] = [RRR] + m
-\end{equation}
+\end{equation*}
 Now we can substitute this into our initial expression as follows:
 \begin{align*}
 	M_p &= 9\left(\frac{[RRR]}{m}+1\right)\\
@@ -127,5 +127,27 @@ To find the other coefficients, multiply two of the $a_i$s together, say $\alpha
 $$\alpha_2 \alpha_3 = \sum_{s\in S} \zeta^s \cdot \sum_{t\in T}\zeta^t=\sum_{s \in S, t\in T}\zeta^{s+t} = \sum_{x\in \fp}N_x \zeta^x$$
 where $N_x$ is the number of pairs $(s,t)$ with $s \in S$ and $t \in T$ such that $s+t=x$. For $r \in R$, notice that
 $$N_x = [ST{-x}] = [rS,rT,{-rx}]=[S,T,{-rx}]=N_{rx}$$
-which shows that $N_x$ depends only on the coset $R$,$S$ or $T$ in which $x$ lies.
+which shows that $N_x$ depends only on the coset $R$, $S$ or $T$ in which $x$ lies. Therefore,
+\begin{equation*}
+	mN_x = [S,T,Rx] = \left\{
+		\begin{array}{rl}
+			{[STR]} & \text{if } x \in R,\\
+			{[STS]} & \text{if } x \in S,\\
+			{[STT]} & \text{if } x \in T.
+		\end{array}
+		\right.
+\end{equation*}
+Define integers $a$, $b$ and $c$ by
+$$[STR] = ma,\quad [STS] = mb,\quad [STT] = mc$$
+Recall our current working expression for $M_p=\frac{9[RTS]}{m}$. Then
+$$M_p = 9a$$
+and
+$$\alpha_2\alpha_3 = a\alpha_1 + b\alpha_2 + c\alpha_3$$
+Similarly,
+\begin{align*}
+	\alpha_1\alpha_3 &= a\alpha_2 + b\alpha_3 + c\alpha_1\\
+	\alpha_1\alpha_2 &= a\alpha_3 + b\alpha_1 + c\alpha_2
+\end{align*}
+This allows us to calculate the coefficient of $t$ in $f(t)$ as follows:
+$$\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3 = (a + b + c)(\alpha_1 + \alpha_2 + \alpha_3) = -(a + b + c)$$
 \end{proof}
