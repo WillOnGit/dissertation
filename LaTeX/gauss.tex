@@ -20,7 +20,7 @@ Define $M_p$ to be the number of projective solutions to the equation $x^3 + y^3
 \item if $p \not\equiv 1 \mod{3}$, then $M_p = p + 1$.
 \item otherwise $p \equiv 1 \mod{3}$, and there exist integers $A$ and $B$ such that
 	$$4p = A^2 + 27B^2$$
-	Since $A^2 \equiv 1 \mod{3}$, $A \equiv \pm1 \mod{3}$. If we fix the sign of A so that $A \equiv 1 \mod{3}$, then
+	Since $A^2 \equiv 1 \mod{3}$, $A \equiv \pm1 \mod{3}$. If we fix the sign of $A$ so that $A \equiv 1 \mod{3}$, then
 	$$M_p = p + 1 + A$$
 \end{itemize}
 \end{theorem}
@@ -150,4 +150,15 @@ Similarly,
 \end{align*}
 This allows us to calculate the coefficient of $t$ in $f(t)$ as follows:
 $$\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3 = (a + b + c)(\alpha_1 + \alpha_2 + \alpha_3) = -(a + b + c)$$
+But
+\begin{align*}
+	m(a + b + c) &= [STR] + [STS] + [STT]\\
+		     &= [ST(R\cup S\cup T)]\\
+	      &= [ST\fp] - [ST{0}]\\
+	      &= m^2
+\end{align*}
+So we see that
+$$\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3 = -m$$
+Finally, we need to calculate $\alpha_1\alpha_2\alpha_3$. We do this by calculating the sum of squares of the $\alpha_i$ as follows:
+$$\alpha_1^2 + \alpha_2^2 + \alpha_3^2 = (\alpha_1 + \alpha_2 + \alpha_3)^2 - 2(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3) = 1 + 2m$$
 \end{proof}
