@@ -1,0 +1,40 @@
+\begin{definition}
+	A field is a commutative, unital ring in which every non-zero element is invertible
+\end{definition}
+The group $Z_n$ is a field if and only if $n$ is prime.
+\begin{definition}
+	The euclidean algorithm takes two numbers and returns their \emph{greatest common divisor (gcd)} by repeated division with remainder.
+\end{definition}
+\begin{align*}
+	\gcd{21,15}:21 &= 1\times15 + 6\\
+	15 &= 2\times6 + 3\\
+	6 &= 2\times3 + 0\\
+\end{align*}
+So $\gcd(21,15)=3$
+Using the steps of the algorithm, it is possible to calculate
+\begin{align*}
+	\gcd{21,15} = 3 &= 1\times15 - 2\times6\\
+	&= 15 - 2\times(21 - 1\times15)\\
+	&= 15 - 2\times21 + 2\times15\\
+	&=3\times15 - 2\times21
+\end{align*}
+So $3 = 3\times15 - 2\times21$
+\begin{definition}
+	The projective plane is an extension of regular 2-dimensional euclidean space by adding ``points at infinity'' such that every pair of lines intersects exactly once.
+\end{definition}
+\begin{definition}
+	An elliptic curve is a non-singular cubic projective curve. For our purposes, they can all be written as $y^2 = f(x)$, where $f(x)$ is a cubic polynomial in $x$ with no repeated roots.
+\end{definition}
+For elliptic curves over a finite field $\mathbb{F}_p$, when adding points $(x_1,y_1) + (x_2,y_2) = (x',y')$,
+$$x'=\lambda^2 - a - x_1 - x_2,\quad y' = \lambda x_1 -\lambda x' - y_1 $$
+where $\lambda = \frac{y_2-y_1}{x_2-x_1}$ if $x_1\neq x_2$ or $\lambda=\frac{3x_1^2 + 2ax_1 + b}{2y_1}$ otherwise.
+\begin{definition}
+	Lenstra's algorithm goes roughly as follows to factor an integer $N$:
+	\begin{itemize}
+		\item Choose random integers $b$, $x$ and $y \mod N$
+		\item Let $P = (x,y)$ and $c:=y^2-x^3-bx$ such that $P$ is a point on the curve $C: Y^2 = X^3 +bX + c \mod N$
+		\item Compute $kP$ for large $k$ ($k=10!$, for example)
+		\item If the computation of $kP$ is successful, increment $b$ and restart
+		\item Continue until one of the additions fails
+	\end{itemize}
+\end{definition}
