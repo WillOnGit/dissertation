@@ -154,11 +154,22 @@ But
 \begin{align*}
 	m(a + b + c) &= [STR] + [STS] + [STT]\\
 		     &= [ST(R\cup S\cup T)]\\
-	      &= [ST\fp] - [ST{0}]\\
+	      &= [ST\fp] - [ST\{0\}]\\
 	      &= m^2
 \end{align*}
 So we see that
 $$\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3 = -m$$
 Finally, we need to calculate $\alpha_1\alpha_2\alpha_3$. We do this by calculating the sum of squares of the $\alpha_i$ as follows:
 $$\alpha_1^2 + \alpha_2^2 + \alpha_3^2 = (\alpha_1 + \alpha_2 + \alpha_3)^2 - 2(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3) = 1 + 2m$$
+Now we can write
+\begin{align*}
+	\alpha_1 (\alpha_2 \alpha_3) = \alpha_1 (a\alpha_1 + b\alpha_2 + c\alpha_3)\\
+	\alpha_2 (\alpha_3 \alpha_1) = \alpha_2 (a\alpha_2 + b\alpha_3 + c\alpha_1)\\
+	\alpha_3 (\alpha_1 \alpha_2) = \alpha_3 (a\alpha_3 + b\alpha_1 + c\alpha_2)
+\end{align*}
+and sum these to get
+\begin{align*}
+	3\alpha_1 \alpha_2 \alpha_3 &= a(\alpha_1^2 + \alpha_2^2 + \alpha_3^2) + (b+c)(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3)\\
+	&= a(1+2m) +(b+c)(-m)
+\end{align*}
 \end{proof}
