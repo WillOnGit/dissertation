@@ -117,8 +117,8 @@ Now we can substitute this into our initial expression as follows:
 \end{align*}
 This is the end of our initial manipulations. We now proceed to use \emph{cubic gauss sums} to find an expression for $[RTS]$. Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
 $$\alpha_1 = \sum_{r\in R} \zeta^r,\quad \alpha_2 = \sum_{s\in S} \zeta^s,\quad \alpha_3 = \sum_{t\in T} \zeta^t$$
-These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $G(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
-$$ G(t) = (t-\alpha)(t-\beta)(t-\gamma) = t^3 - (\alpha + \beta + \gamma)t^2 + (\alpha \beta + \alpha \gamma + \beta \gamma)t - \alpha \beta \gamma $$
+These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $P(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
+$$ P(t) = (t-\alpha)(t-\beta)(t-\gamma) = t^3 - (\alpha + \beta + \gamma)t^2 + (\alpha \beta + \alpha \gamma + \beta \gamma)t - \alpha \beta \gamma $$
 For the coefficient of $t^2$, notice that
 $$ 0 = \zeta^p -1 = (\zeta - 1)(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) $$
 and since $\zeta-1 \neq 0$, $(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) = 0$. Therefore, $\alpha_1 + \alpha_2 + \alpha_3 = -1$, and the coefficient of $t^2 = 1$.
@@ -170,6 +170,21 @@ Now we can write
 and sum these to get
 \begin{align*}
 	3\alpha_1 \alpha_2 \alpha_3 &= a(\alpha_1^2 + \alpha_2^2 + \alpha_3^2) + (b+c)(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3)\\
-	&= a(1+2m) +(b+c)(-m)
+	&= a(1+2m) +(b+c)(-m) = a + km
 \end{align*}
+where $k$ is yet another new letter, defined as $k = 2a-b-c=3a-m$. This is the last coefficient of $f(t)$ we need to calculate, and thus
+$$f(t) = t^3 + t^2 - mt - \frac{a+km}{3}$$
+We then update our expression for $M_p$ once more, and have
+$$M_p = 9a = 3(k + m) = 3k + p - 1$$
+Now let $D_F$ be the discriminant of $F$. Using our formula for the $\alpha_i \alpha_j$, we can calculate a square root of $D_F$ as
+\begin{align*}
+	\sqrt{D_F} &= (\alpha_1 - \alpha_2)(\alpha_1 - \alpha_3)(\alpha_2 - \alpha_3)\\
+	&= \alpha_2\alpha_3(\alpha_2-\alpha_3) + \alpha_3\alpha_1(\alpha_3-\alpha_1) + \alpha_1\alpha_2(\alpha_1-\alpha_2)\\
+	&= (a\alpha_1 + b\alpha_2 + c\alpha_3)(\alpha_2 - \alpha_3) + (a\alpha_2 + b\alpha_3 + c\alpha_1)(\alpha_3 - \alpha_1) + (a\alpha_3 + b\alpha_1 + c\alpha_2)(\alpha_1 - \alpha_2)\\
+	&= (b-c)(\alpha_1^2 + \alpha_2^2 + \alpha_3^2 - \alpha_1\alpha_2 - \alpha_1\alpha_3 - \alpha_2\alpha_3)\\
+	&= (b-c)(1 + 3m)\\
+	&= (b-c)p
+\end{align*}
+Now, we calculate $g(t)$, which is related to $f(t)$; while $f(t)$ has the $\alpha_i$ as its three roots, $g(t)$ has the $\beta_i$ as its three roots, which are defined as follows:
+$$\beta_i = 1 + 3\alpha_i\quad \for i=1,2,3$$
 \end{proof}
