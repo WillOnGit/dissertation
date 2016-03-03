@@ -210,19 +210,18 @@ $$4p = A^2 + 27B^2$$
 with
 $$B = b-c\quad \text{and}\quad A = 3k-2$$
 We now just need to verify that $A$ is uniquely determined by the two conditions $4p = A^2 + 27B^2$ and $A \equiv 1 \mod 3$.
-For uniqueness, suppose $4p = A_{\ast}^2 + 27B_{\ast}^2$ is another representation. Then
+For uniqueness, suppose $4p = \galt{A}^2 + 27\galt{B}^2$ is another representation. Then
 \begin{align*}
-	4p(B_\ast^2 - B^2) &= (A^2 + 27B^2)B_{\ast}^2 - (A_{\ast}^2 + 27B_{\ast}^2)B^2\\
-	&= (AB_{\ast} + A_{\ast}B)(AB_{\ast} - A_{\ast}B)
+	4p(B_\ast^2 - B^2) &= (A^2 + 27B^2)\galt{B}^2 - (\galt{A}^2 + 27\galt{B}^2)B^2\\
+	&= (A\galt{B} + \galt{A}B)(A\galt{B} - \galt{A}B)
 \end{align*}
-Since $p$ divides the LHS, it must divide one of the factors on the RHS, say $p|(AB_{\ast} - A_{\ast}B)$. Now multiply the two representations of $4p$ together to get
-%label properly from here
-$$16p^2 = A^2A^2 + 27B^2A^2 + 27B^2A^2 + 27B^2B^2$$
+Since $p$ divides the LHS, it must divide one of the factors on the RHS, say $p|(A\galt{B} - \galt{A}B)$. Now multiply the two representations of $4p$ together to get
+$$16p^2 = A^2\galt{A}^2 + 27B^2\galt{A}^2 + 27\galt{B}^2A^2 + 27B^2\galt{B}^2$$
 so that
-$$16p^2 - (AA + 27BB)^2 = 27(AB - AB)^2$$
+$$16p^2 - (A\galt{A} + 27B\galt{B})^2 = 27(A\galt{B} - \galt{A}B)^2$$
 Since $p$ divides $AB - AB$, we see that
-$$16 - \left(\frac{AA + 27BB}{p}\right)^2 = 27\left(\frac{AB-AB}{p}\right)^2$$
-Seeing as the LHS is no greater than 16 and the RHS is $27$ times the square of an integer, we see that both sides actually equal zero. This implies that $AB - AB = 0$, so if we let
-$$\lambda = \frac{A}{A} = \frac{B}{B}$$
-Substituting into $A^2 + 27B^2 = 4p = A^2 + 27B^2$ gives $\lambda^2 = 1$, so $\lambda = \pm 1$. The assumption that $A = A = 1 \mod 3$ means that $\lambda = 1$, proving the uniqueness of $A$ and completing the proof.
+$$16 - \left(\frac{A\galt{A} + 27B\galt{B}}{p}\right)^2 = 27\left(\frac{A\galt{B}-\galt{A}B}{p}\right)^2$$
+Seeing as the LHS is no greater than 16 and the RHS is $27$ times the square of an integer, we see that both sides actually equal zero. This implies that $A\galt{B} - \galt{A}B = 0$, so if we let
+$$\lambda = \frac{\galt{A}}{A} = \frac{\galt{B}}{B}$$
+Substituting into $A^2 + 27B^2 = 4p = \galt{A}^2 + 27\galt{B}^2$ gives $\lambda^2 = 1$, so $\lambda = \pm 1$. The assumption that $A = \galt{A} = 1 \mod 3$ means that $\lambda = 1$, proving the uniqueness of $A$ and completing the proof.
 \end{proof}
