@@ -187,4 +187,26 @@ Now let $D_f$ be the discriminant of $f$. Using our formula for the $\alpha_i \a
 \end{align*}
 Now, we calculate $g(t)$, which is related to $f(t)$; while $f(t)$ has the $\alpha_i$ as its three roots, $g(t)$ has the $\beta_i$ as its three roots, which are defined as follows:
 $$\beta_i = 1 + 3\alpha_i\quad \for i=1,2,3$$
+Then
+\begin{align*}
+	\beta_1 + \beta_2 + \beta_3 &= 0\\
+	\beta_1\beta_2 + \beta_1\beta_3 + \beta_2\beta_3 &= -3p\\
+	\beta_1\beta_2\beta_3 &= (3k-2)p
+\end{align*}
+Which gives $g(t)$ as
+$$g(t) = t^3 - 3pt - (3k-2)p$$
+Let $A = 2k - 2$. Then we can, for the last time, update our expression for $M_p$:
+$$M_p = 3k + p - 1 = p + 1 + A$$
+This is indeed the $A$ referred to in the initial statement of the theorem; we now show that it has all the stated properties.
+
+Let $D_g$ be the discriminant of $g(t)$. Then by simply plugging the coefficients of $g$ into the formula for the discriminant of a cubic, we have
+$$D_g = -4(-3p)^3 - 27(Ap)^2 = 4 \cdot 27p^3 - 27A^2p^2$$
+Now, for distinct $i,j \in \{1,2,3\}$, notice that $\beta_i - \beta_j = 3(\alpha_i - \alpha_j)$, and therefore
+$$D_g = 27^2 D_f$$
+And thus
+$$4 \cdot 27p^3 - 27A^2p^2 = D_g = 27^2 D_f = 27^2 (b-c)^2p^2$$
+Canceling $27p^2$,
+$$4p = A^2 + 27B^2$$
+with
+$$B = b-c \and A = 3k-2 \equiv 1 \mod 3$$
 \end{proof}
