@@ -19,20 +19,30 @@
 \tableofcontents
 
 \section{Preamble}
-\input{definitions.tex}
+\subsection{Motivation}
+\input{motivation.tex}
+\subsection{Finite Fields}
+\input{finitefieldsdefinitions.tex}
+\subsection{The Projective Plane}
+\input{projectivedefinitions.tex}
+\subsection{Elliptic Curves}
+\input{ellipticdefinitions.tex}
 \input{h-w.tex}
-\clearpage
 \input{gauss.tex}
-\clearpage
 
 \section{Algorithms}
-\input{algorithms.tex}
-%\lipsum[1-3]
+\subsection{Modular Exponentiation}
+\input{modexalgorithm.tex}
+\subsection{The Euclidean Algorithm}
+\input{euclideanalgorithm.tex}
+\subsection{Lenstra's Algorithm}
+\input{lenstraalgorithm.tex}
 
 \section{Discussion}
-%\lipsum[1-3]
+\subsection{Example RSA Decryption}
 \input{rsa.tex}
-\clearpage
+\subsection{Elliptic Curve Cryptography}
+\input{ecc.tex}
 
 \appendix
 \section{Code}
