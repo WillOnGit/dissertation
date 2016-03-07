@@ -2,14 +2,14 @@
 	The euclidean algorithm takes two numbers and returns their \emph{greatest common divisor (gcd)} by repeated division with remainder.
 \end{definition}
 \begin{align*}
-	\gcd{21,15}:21 &= 1\times15 + 6\\
+	\gcd(21,15):21 &= 1\times15 + 6\\
 	15 &= 2\times6 + 3\\
 	6 &= 2\times3 + 0\\
 \end{align*}
 So $\gcd(21,15)=3$
 Using the steps of the algorithm, it is possible to calculate
 \begin{align*}
-	\gcd{21,15} = 3 &= 1\times15 - 2\times6\\
+	\gcd(21,15) = 3 &= 1\times15 - 2\times6\\
 	&= 15 - 2\times(21 - 1\times15)\\
 	&= 15 - 2\times21 + 2\times15\\
 	&=3\times15 - 2\times21
@@ -17,7 +17,7 @@ Using the steps of the algorithm, it is possible to calculate
 So $3 = 3\times15 - 2\times21$. This is important, because writing the gcd in this fashion allows us to find the multiplicative inverse of an element $a$ of a finite field, by solving a linear congruence $ax\equiv 1 \mod p$.
 \begin{definition}
 	The modular exponentiation algorithm allows highly efficient calculation of expressions of the form $a^k$ mod $n$, even when the numbers involved are very large. To improve on the naive method of repeatedly multiplying by $a$ and reducing mod n, observe that, for $k=500$,
-$$k=2^2+2^4+2^5+2^6+2^7+2^8$$
+$$500=2^2+2^4+2^5+2^6+2^7+2^8$$
 and therefore $a^k$ may be written as
 $$a^{500} = a^{2^{2}} \times a^{2^{4}} \times a^{2^{5}} \times a^{2^{6}} \times a^{2^{7}} \times a^{2^{8}}$$
 these terms are much easier to calculate by successively squaring and reducing mod $n$. Let $A_0 = a$ and calculate
