@@ -1,4 +1,22 @@
+% Going to include linear congruences in this section too
 \begin{definition}
 	A field is a commutative, unital ring in which every non-zero element is invertible
 \end{definition}
-The group $Z_n$ is a field if and only if $n$ is prime.
+Recall the group $\zn$, the group of integers modulo some natural number $n$.
+For a given $n$, we have already seen that we can make $\zn$ a ring by defining the natural multiplication law.
+However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted by writing $\zn = \fp$ to emphasise both that the modulus is prime and that the ring is a field.
+The reason this is true is obvious when considering inverses; if we attempt to make a field out of $\zn[4]$, we find that $2$ has no inverse, since
+\begin{align*}
+	2 \times 0 &= 0\\
+	2 \times 1 &= 2\\
+	2 \times 2 &= 0\\
+	2 \times 3 &= 2.
+\end{align*}
+Therefore, $\zn[4]$ fails to meet the criteria for a field.
+
+The question of finding inverses, you should also remember, has an easy, general solution, which involves the euclidean algorithm, which is recapped here.
+\begin{definition}
+	A linear congruence is an equation of the form
+	$$ax \equiv b \mod n$$
+\end{definition}
+Recall this basic definition from \texttt{MATH111}. Clearly, the nature of linear congruences lends itself to arithmetic within finite fields.
