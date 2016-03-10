@@ -4,11 +4,12 @@
 \end{definition}
 Recall the group $\zn$, the group of integers modulo some natural number $n$.
 For a given $n$, we have already seen that we can make $\zn$ a ring by defining the natural multiplication law by $\widehat{a} \times \widehat{b} = \widehat{ab}$.
+\footnote{
+	From now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are actually equivalence classes, and just write them as numerals, as many do. This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
+}
 However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted
 by writing $\zn = \fp$ to emphasise both that the modulus is prime and
-that the ring is a field.
-
-One thing to note is that from now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are simply equivalence classes, and just write them as numerals, as many do. This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
+that the ring is a field.  
 
 The reason this is true is obvious when considering inverses; if we attempt to make a field out of $\zn[4]$, we find that $2$ has no inverse, since
 \begin{align*}
@@ -46,7 +47,11 @@ Recall this basic definition from \texttt{MATH111}. The solutions of such equati
 	The equation $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.
 \end{proposition}
 \begin{proof}
-	Blah blah blah..
+	Let $d = \gcd(a,n)$. To prove $\Rightarrow$, suppose that the congruence has solutions. Let $x \in \Z$ be a solution, such that we can write $ax = qn + b$ for some $q \in \Z$, and therefore $b = ax - qn$. Since $d|a$ and $d|n$, clearly $d|b$.
+
+	For  $\Leftarrow$, supposing that $d|b$, or $b=td$ for some $t \in \Z$. We can write $d = ra + sm$ for some $r,s \in \Z$, and therefore
+	$$b = td = t(ra + sn) = a(tr) + (ts)n \equiv a(tr) \mod n$$
+	and the congruence has $x = tr$ as a solution.
 \end{proof}
 This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of an element $x$, we need to solve
 $$ax \equiv 1 \mod n,$$
