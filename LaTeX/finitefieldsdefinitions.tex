@@ -1,10 +1,15 @@
 % Going to include linear congruences in this section too
 \begin{definition}
-	A field is a commutative, unital ring in which every non-zero element is invertible
+	A field is a commutative, unital ring in which every non-zero element is invertible.
 \end{definition}
 Recall the group $\zn$, the group of integers modulo some natural number $n$.
-For a given $n$, we have already seen that we can make $\zn$ a ring by defining the natural multiplication law.
-However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted by writing $\zn = \fp$ to emphasise both that the modulus is prime and that the ring is a field.
+For a given $n$, we have already seen that we can make $\zn$ a ring by defining the natural multiplication law by $\widehat{a} \times \widehat{b} = \widehat{ab}$.
+However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted
+by writing $\zn = \fp$ to emphasise both that the modulus is prime and
+that the ring is a field.
+
+One thing to note is that from now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are simply equivalence classes, and just write them as numerals, as many do. This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
+
 The reason this is true is obvious when considering inverses; if we attempt to make a field out of $\zn[4]$, we find that $2$ has no inverse, since
 \begin{align*}
 	2 \times 0 &= 0\\
@@ -31,9 +36,20 @@ Using the steps of the algorithm, it is possible to calculate
 	&= 15 - 2\times21 + 2\times15\\
 	&=3\times15 - 2\times21
 \end{align*}
-So $3 = 3\times15 - 2\times21$. This is important, because writing the gcd in this fashion allows us to find the multiplicative inverse of an element $a$ of a finite field, by solving a linear congruence $ax\equiv 1 \mod p$.
+So $3 = 3\times15 - 2\times21$. % This is important, because writing the gcd in this fashion allows us to find the multiplicative inverse of an element $a$ of a finite field, by solving a linear congruence $ax\equiv 1 \mod p$.
 \begin{definition}
-	A linear congruence is an equation of the form
+	Let $a,b \in \Z$ and $m \in \N$ A linear congruence is an equation of the form
 	$$ax \equiv b \mod n$$
 \end{definition}
-Recall this basic definition from \texttt{MATH111}. Clearly, the nature of linear congruences lends itself to arithmetic within finite fields.
+Recall this basic definition from \texttt{MATH111}. The solutions of such equations are well understood, as given by this straightforward proposition.
+\begin{proposition}
+	The equation $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.
+\end{proposition}
+\begin{proof}
+	Blah blah blah..
+\end{proof}
+This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of an element $x$, we need to solve
+$$ax \equiv 1 \mod n,$$
+which clearly implies that $a$ and $n$ must be coprime for an inverse to exist. Therefore all elements $\{0,1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field. Clearly, this happens if and only if $n$ is prime.
+
+This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is not.
