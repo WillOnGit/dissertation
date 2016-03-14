@@ -20,10 +20,11 @@ The reason this is true is obvious when considering inverses; if we attempt to m
 \end{align*}
 Therefore, $\zn[4]$ fails to meet the criteria for a field.
 
-The question of finding inverses, you should also remember, has an easy, general solution, which involves the euclidean algorithm, which is recapped here.
+The question of finding inverses in $\zn$ has a well understood, general solution, which involves the euclidean algorithm.
 \begin{definition}
-	The euclidean algorithm takes two numbers and returns their \emph{greatest common divisor (gcd)} by repeated division with remainder.
+	The euclidean algorithm takes two numbers $a,b \in \N$ and returns their \emph{greatest common divisor (gcd)} by repeated division with remainder.
 \end{definition}
+The algorithm looks as follows when applied to 21 and 15:
 \begin{align*}
 	\gcd(21,15):21 &= 1\times15 + 6\\
 	15 &= 2\times6 + 3\\
@@ -37,7 +38,7 @@ Using the steps of the algorithm, it is possible to calculate
 	&= 15 - 2\times21 + 2\times15\\
 	&=3\times15 - 2\times21
 \end{align*}
-So $3 = 3\times15 - 2\times21$. % This is important, because writing the gcd in this fashion allows us to find the multiplicative inverse of an element $a$ of a finite field, by solving a linear congruence $ax\equiv 1 \mod p$.
+So $3 = 3\times15 - 2\times21$. This relates to inverses in a finite field in the following way.
 \begin{definition}
 	Let $a,b \in \Z$ and $m \in \N$ A linear congruence is an equation of the form
 	$$ax \equiv b \mod n$$
@@ -57,4 +58,4 @@ This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find th
 $$ax \equiv 1 \mod n,$$
 which clearly implies that $a$ and $n$ must be coprime for an inverse to exist. Therefore all elements $\{0,1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field. Clearly, this happens if and only if $n$ is prime.
 
-This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is not.
+This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is composite: namely, all elements which are coprime to $n$ will still have an inverse. Thus, $\zn$ will ``sort of work'' as a field. This idea will be revisited later.
