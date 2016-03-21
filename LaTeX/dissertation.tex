@@ -3,7 +3,7 @@
 \title{Cubic Curves Over Finite Fields}
 \author{Will Bolton}
 \date{\today}
-\bibliographystyle{unsrt}
+\bibliographystyle{abbrv}
 \input{header.tex}
 
 \begin{document}
@@ -11,27 +11,24 @@
 \tableofcontents
 \clearpage
 
-\section{Preamble}
+\section{Prerequisites}
 \subsection{Motivation}
 \input{motivation.tex}
-\cite{silverman-rational}
-\cite{silverman-arithmetic}
-\cite{111-lectures}
-\cite{323-lectures}
-\cite{menezes1996}
+\nocite{*}
 \subsection{Finite Fields}
 \input{finitefieldsdefinitions.tex}
 \subsection{The Projective Plane}
 \input{projectivedefinitions.tex}
 \subsection{Elliptic Curves}
 \input{ellipticdefinitions.tex}
+
+\section{Theory}
+\subsection{Elliptic Curves Over Finite Fields}
+\subsection{The Number of Points on an Elliptic Curve}
 \input{h-w.tex}
 \input{gauss.tex}
-
-\section{Algorithms}
-\subsection{Modular Exponentiation}
-\input{modexalgorithm.tex}
 \subsection{Lenstra's Algorithm}
+\input{modexalgorithm.tex}
 \input{lenstraalgorithm.tex}
 
 \section{Discussion}
