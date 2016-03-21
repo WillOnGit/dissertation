@@ -104,7 +104,7 @@ and likewise, $[RRT] = [TTS]$. Substituting these into \eqref{g_manipulate1}, we
 \begin{equation}
 	[RR\{0\}] +[RRR] + [SST] + [TTS] = m^2 \label{g_manipulate2}
 \end{equation}
-Again using the dijoint union of $\fp$ and $[\fp TS] = m^2$ (for the same reasons as $[RR\fp]$, we have
+Again using the disjoint union of $\fp$ and $[\fp TS] = m^2$ (for the same reasons as $[RR\fp]$, we have
 \begin{equation}
 	[\fp TS] = [\{0\}TS] + [RTS] + [STS] + [TTS] = m^2 \label{g_manipulate3}
 \end{equation}
@@ -118,9 +118,9 @@ Now we can substitute this into our initial expression as follows:
 	    &= \frac{9}{m}\left([RRR] + m\right)\\
 	    &= \frac{9[RTS]}{m}
 \end{align*}
-This is the end of our initial manipulations. We now proceed to use \emph{cubic gauss sums} to find an expression for $[RTS]$. Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
+This is the end of our initial manipulations. We now proceed to use \emph{cubic Gauss sums} to find an expression for $[RTS]$. Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
 $$\alpha_1 = \sum_{r\in R} \zeta^r,\quad \alpha_2 = \sum_{s\in S} \zeta^s,\quad \alpha_3 = \sum_{t\in T} \zeta^t$$
-These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $P(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
+These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic Gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $P(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
 $$ P(t) = (t-\alpha)(t-\beta)(t-\gamma) = t^3 - (\alpha + \beta + \gamma)t^2 + (\alpha \beta + \alpha \gamma + \beta \gamma)t - \alpha \beta \gamma $$
 For the coefficient of $t^2$, notice that
 $$ 0 = \zeta^p -1 = (\zeta - 1)(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) $$
