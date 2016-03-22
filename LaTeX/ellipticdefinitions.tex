@@ -1,6 +1,10 @@
+Knowledge of projective geometry is vital to understanding elliptic curves, as they are curves that are defined in the projective plane.
+However, the definition is not too complicated.
+\begin{definition}
+	An elliptic curve is a regular, projective cubic curve.
+\end{definition}
+Here, a cubic simply means that the polynomial that defines the curve is of degree three. So for example, $F(X,Y,Z) = X^3 + 2XYZ + 5YZ^2 + \frac{1}{2}Z^3$ defines an elliptic curve $F(X,Y,Z) = 0$. % Check this!!
+%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
 	An elliptic curve is a non-singular cubic projective curve. For our purposes, they can all be written as $y^2 = f(x)$, where $f(x)$ is a cubic polynomial in $x$ with no repeated roots.
 \end{definition}
-For elliptic curves over a finite field $\mathbb{F}_p$, when adding points $(x_1,y_1) + (x_2,y_2) = (x',y')$,
-$$x'=\lambda^2 - a - x_1 - x_2,\quad y' = \lambda x_1 -\lambda x' - y_1 $$
-where $\lambda = \frac{y_2-y_1}{x_2-x_1}$ if $x_1\neq x_2$ or $\lambda=\frac{3x_1^2 + 2ax_1 + b}{2y_1}$ otherwise.
