@@ -69,9 +69,15 @@ For this document, we need only focus on polynomials, and it is easy enough to s
 So the polynomial $\frac{1}{2}x^4 + x^2y^2 + 14xy^3$ is homogeneous with degree 4, whereas the polynomial $17x^5 + 12x^2y + 2$ is not, as the monomials have degrees 5, 3 and 0, from left-to-right.
 
 It is possible to homogenise a given polynomial $F(x_1,\ldots,x_n)$ by letting $F' = F'(x_0,x_1,\ldots,x_n) = x_0^d F(\frac{x_1}{x_0},\ldots,\frac{x_n}{x_0})$, where $d$ is the maximum degree of all monomials of $F$. In practice, this resembles `topping up' the monomials with an extra variable as necessary.
-So the inhomogeneous polynomial $17x^5 + 12x^2y + 2$ discussed earlier can be homogenised as $17X^5 + 12X^2YZ^2 + 2Z^5$. There are a few things to notice here. First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear. We also use $x$, $y$ and $z$ (and also $X$, $Y$ and $Z$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
+So the inhomogeneous polynomial $17x^5 + 12x^2y + 2$ discussed earlier can be homogenised as $17X^5 + 12X^2YZ^2 + 2Z^5$.
+The reverse transition can be made also, simply by letting $F(x_1,\ldots,x_n) = F(1,x_1,\ldots,x_n)$, which looks like simply taking out the extra variable.
 
-To summarise, it is possible to move to and from the projective plane with regards to both points and polynomials. A point $(x,y)$ can be mapped to $[x,y,1]$, and a polynomial such as $x^2 + y$ can be mapped to $X^2 + YZ$.
+There are a few things to notice here.
+First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
+We also use $x$ and $y$ (and also $X$, $Y$ and $Z$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
+
+To summarise, it is possible to move to and from the projective plane with regards to both points and polynomials.
+A point $(x,y)$ can be mapped to $[x,y,1]$, and a polynomial such as $x^2 + y$ can be mapped to $X^2 + YZ$.
 
 \begin{figure}[htpb]
 	\centering
@@ -94,3 +100,15 @@ To summarise, it is possible to move to and from the projective plane with regar
 \end{figure}
 The lines given by $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$, which are parallel in $\R^2$, intersect in the projective plane at the point [3,-2,0].
 This is because, when homogenised with respect to $z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y + 4Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,-2,0]$.
+
+Now that the basics of projective geometry have been established, we introduce a few more ideas necessary for understanding the main subject matter.
+From now on, we also limit ourselves to the projective plane $\pn[2]$.
+
+\begin{definition}
+	A singular point on a curve $f$ is a point where both partial derivatives $f_x$ and $f_y$ vanish. A point that is not a singular point is called a regular point.
+\end{definition}
+Singular points are important to consider as they are the points where there is no sensible notion of the tangent to a curve.
+The importance of this will become apparent later on.
+\begin{definition}
+	A curve that contains one or more singular points is a singular curve. Otherwise, the curve is regular.
+\end{definition}
