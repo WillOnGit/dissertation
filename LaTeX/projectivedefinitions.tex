@@ -39,7 +39,7 @@ Projective $n$-space can be thought of as either affine $n$-space with points at
 
 \subsubsection{Construction 1: Quotient of $\an[n+1]$}
 Remove the origin (i.e. the point $(0,0,\ldots,0)$) from $\an[n+1]$ and define an equivalence relation $\sim$ on the remaining points as follows:
-$$(a_0,a_1,\ldots,a_n) \sim (b_0,b_1,\ldots,b_n) \iff (a_0,a_1,\ldots,a_n) = \lambda(b_0,b_1,\ldots,b_n) = (\lambda b_0,\lambda b_1,\ldots,\lambda b_n)$$
+$$(a_0,a_1,\ldots,a_n) \sim (b_0,b_1,\ldots,b_n) \iff (a_0,a_1,\ldots,a_n) = \lambda(b_0,b_1,\ldots,b_n)$$
 where $\lambda$ is a non-zero scalar. Then we have 
 $$\pn = (\an[n+1]\setminus\{(0,\ldots,0)\})/\sim,$$
 the set of equivalence classes of $\sim$.
@@ -64,7 +64,7 @@ Notice that the image of $\beta_n$ will always give valid homogeneous coordinate
 Since homogeneous coordinates are not unique, it is not always possible to define curves in projective space in the usual form of $F(X,Y,Z)=0$. To that extent, when working with the projective plane, it is convenient to define a homogeneous function as a function which satisfies
 $$F(tX_1,tX_2,\ldots,tX_n)=t^k F(X_1,X_2,\ldots,X_n)$$
 for some $k$. We see that these kinds of functions \emph{are} well-defined in the projective plane, since
-$$F(X_1,X_2,\ldots,X_n)=0 \Leftrightarrow F(tX_1,tX_2,\ldots,tX_n) = t^k F(tX_1,tX_2,\ldots,tX_n) = 0$$
+$$F(X_1,X_2,\ldots,X_n)=0 \Leftrightarrow F(tX_1,tX_2,\ldots,tX_n) = t^k F(X_1,X_2,\ldots,X_n) = 0$$
 For this document, we need only focus on polynomials, and it is easy enough to see that a polynomial is homogeneous if and only if the degree of each monomial $= d$, for some $d \in \N$.
 So the polynomial $\frac{1}{2}x^4 + x^2y^2 + 14xy^3$ is homogeneous with degree 4, whereas the polynomial $17x^5 + 12x^2y + 2$ is not, as the monomials have degrees 5, 3 and 0, from left-to-right.
 
@@ -74,10 +74,11 @@ The reverse transition can be made also, simply by letting $F(x_1,\ldots,x_n) = 
 
 There are a few things to notice here.
 First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
-We also use $x$ and $y$ (and also $X$, $Y$ and $Z$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
+We also use $X$, $Y$ and $Z$ (and also $x$ and $y$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
 
 To summarise, it is possible to move to and from the projective plane with regards to both points and polynomials.
-A point $(x,y)$ can be mapped to $[x,y,1]$, and a polynomial such as $x^2 + y$ can be mapped to $X^2 + YZ$.
+A point $(x,y)$ can be mapped to $[x,y,1]$, and from $[X,Y,Z]$ to $(X/Z,Y/Z)$.
+A polynomial $f(x,y)$ can be mapped to $F(X,Y,Z) = Z^d f(x/Z,y/Z)$, and back by mapping $F(X,Y,Z)$ to $f(x,y) = F(x,y,1)$.
 
 \begin{figure}[htpb]
 	\centering
@@ -100,15 +101,34 @@ A point $(x,y)$ can be mapped to $[x,y,1]$, and a polynomial such as $x^2 + y$ c
 \end{figure}
 The lines given by $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$, which are parallel in $\R^2$, intersect in the projective plane at the point [3,-2,0].
 This is because, when homogenised with respect to $z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y + 4Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,-2,0]$.
-
+\subsubsection{Projective Curves}
 Now that the basics of projective geometry have been established, we introduce a few more ideas necessary for understanding the main subject matter.
 From now on, we also limit ourselves to the projective plane $\pn[2]$.
 
 \begin{definition}
-	A singular point on a curve $f$ is a point where both partial derivatives $f_x$ and $f_y$ vanish. A point that is not a singular point is called a regular point.
+	A projective curve is the set of points defined by a \emph{homogeneous} polynomial equation $F(X_1,X_2,\ldots,X_n) = 0$.
+	When discussing the projective plane $\pn[2]$, we write $F(X,Y,Z) = 0$.
+\end{definition}
+The degree of a curve is the degree of the polynomial in the defining equation, quite naturally.
+For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ and $Z^2=0$ all define projective curves in $\pn[2]$.
+The first two have degree 3, the third, degree 2.
+
+\begin{definition}
+	A singular point on a curve $f$ is a point where all partial derivatives $F_x$, $F_y$ and $F_z$ vanish. A point that is not a singular point is called a regular point.
 \end{definition}
 Singular points are important to consider as they are the points where there is no sensible notion of the tangent to a curve.
 The importance of this will become apparent later on.
+An alternative characterisation of a singular point is that the intersection multiplicity of a line and the curve at that point is always greater than one.
+
+Supposing that a point on a curve is regular, and therefore has a tangent.
+It is possible to find the equation of the line by examining the partial derivatives of the curve.
+For example, let $F: X^3 - 3XZ^2 - Y^2Z = 0$ and consider the point $[0,1,0]$ on $F$.
+We have $F_X(X,Y,Z) = 3X^2 -3Z^2$, $F_Y(X,Y,Z) = -2YZ$ and $F_Z(X,Y,Z) = -6XZ - Y^2$.
+The equation of the tangent line $L$ is given by
+$$L : F_X(P)X + F_Y(P)Y + F_Z(P)Z = 0$$
+In this case, we have $L : -X - Z = 0$, or $L: X + Z = 0$.
+As alluded to before, being able to find tangent lines plays an important part in our upcoming material.
+
 \begin{definition}
 	A curve that contains one or more singular points is a singular curve. Otherwise, the curve is regular.
 \end{definition}
