@@ -4,7 +4,14 @@ However, the definition is not too complicated.
 	An elliptic curve is a regular, projective cubic curve.
 \end{definition}
 Here, a cubic simply means that the polynomial that defines the curve is of degree three.
-So for example, $F(X,Y,Z) = X^3 + 2XYZ + 5YZ^2 + \frac{1}{2}Z^3$ defines an elliptic curve $F(X,Y,Z) = 0$. % Check this!!
+So for example, $F(X,Y,Z) = X^3 + 2XYZ + \frac{1}{2}YZ^2$ defines an elliptic curve $F(X,Y,Z) = 0$.
+% Since $F$ is a homogeneous polynomial, it suffices to check that there are no singular points.
+% \begin{align}
+% 	F_X=3X^2 + 2YZ\label{deriv-1}\\
+% 	F_Y=2XZ + 5Z^2\label{deriv-2}\\
+% 	F_Z=2XY + 10YZ\label{deriv-3}
+% \end{align}
+% Now, if $F_X=F_Y=F_Z=0$, \Cref{deriv-1} implies that ... \Cref{deriv-2} \Cref{deriv-3} 
 \subsubsection{The Addition Law on Elliptic Curves}
 Our interest in elliptic curves is mainly concentrated on a special property, unique to them.
 It is possible to turn the set of points of an elliptic curve $E$ into a group by introducing a special addition law that satisfies all of the group axioms.
@@ -31,8 +38,16 @@ It turns out the answer is no, since associativity is not satisfied. This can be
 	The flex $\pai$ acts as the identity element of the group.
 \end{theorem}
 This is known as Poincaré's theorem.
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
-	An elliptic curve is a non-singular cubic projective curve. For our purposes, they can all be written as $y^2 = f(x)$, where $f(x)$ is a cubic polynomial in $x$ with no repeated roots.
-\end{definition}
+\subsubsection{Canonical Forms of Elliptic Curves}
+As we have introduced them so far, elliptic curves have no specific form, other than being defined by a homegeneous polynomial of degree three.
+The following theorems are useful when working with elliptic curves.
+\begin{theorem}
+	For any elliptic curve given by a polynomial $F$, there exist projective transformations which put $F$ into one of the following forms:
+	\begin{itemize}
+		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = X^3 + aX^2Z + bXZ^2 + cZ^3$
+		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = 4X^3 - pXZ^2 - qZ^3$
+	\end{itemize}
+	In either form, the curve is regular if and only if $g(x)$ (the homogenisation of $G(X,Z)$) has no repeated roots. Also, the point $\pai = [0,1,0]$ is the unique point at infinity on the curve, and is a flex.
+\end{theorem}
+When dehomogenising these forms, notice that we have the affine curves $y^2 = x^3 + ax^2z + bxz^2 + cz^3$ and $y^2 = 4x^3 - pxz^2 - qz^3$.
+Since $\pai = [0,1,0]$ acts as the identity on curves of this form, the elliptic curve addition law is sometimes stated as $P + Q$ equals the reflection of $P * Q$ in the x-axis.
