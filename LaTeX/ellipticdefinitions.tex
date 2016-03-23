@@ -17,11 +17,20 @@ We do not prove this in this document for the sake of brevity but there are many
 \end{figure}
 The addition rests upon the so-called `chord-tangent~law', which is roughly illustrated in \Cref{chord-tangent}.
 Since an elliptic curve is cubic and regular, by definition, every line intersects it with multiplicity exactly three.
-This means that given two points (not necessarily distinct), the line on which those points lie (or the tangent line to the curve at the point, if the points are the same) will intersect the curve in exactly one other place (including the same point again, if it is a flex).
+This means that given two points (not necessarily distinct), the line on which those points lie (or the tangent line to the curve at the point, if the points are the same) will intersect the curve in exactly one other place.
 The idea of the chord-tangent law is that we can take any two points $P$ and $Q$ and define $P * Q$ to be this third point of intersection.
+Note that, for the group to be an identity, we need an element $0$ such that $0 * 0 = 0$.
+For the chord-tangent law, this just means that the tangent line at $0$ intersects there with multiplicity 3, which just means that $0$ is a flex of $E$.
 Does this make $E$ into a group though?
 
 It turns out the answer is no, since associativity is not satisfied. This can be remedied, though, by defining the elliptic curve addition law as follows.
+\begin{theorem}
+	For points $P$, $Q$ and $R$ on an elliptic curve with a flex $\pai$, the addition law $+$ defined by
+	$$P + Q = \pai * (P * Q)$$
+	turns the curve into an abelian group, where $*$ is the chord-tangent~law as defined earlier.
+	The flex $\pai$ acts as the identity element of the group.
+\end{theorem}
+This is known as Poincaré's theorem.
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{definition}
