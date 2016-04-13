@@ -4,9 +4,9 @@
 \end{definition}
 Recall the group $\zn$, the group of integers modulo some natural number $n$.
 For a given $n$, we have already seen that we can make $\zn$ a ring by defining the natural multiplication law by $\widehat{a} \times \widehat{b} = \widehat{ab}$.
-\footnote{
-	From now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are actually equivalence classes, and just write them as numerals, as many do. This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
-}
+From now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are actually equivalence classes, and just write them as numerals.
+This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
+
 However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted
 by writing $\zn = \fp$ to emphasise both that the modulus is prime and
 that the ring is a field.  
@@ -19,6 +19,10 @@ The reason this is true is obvious when considering inverses; if we attempt to m
 	2 \times 3 &= 2.
 \end{align*}
 Therefore, $\zn[4]$ fails to meet the criteria for a field.
+
+% Paragraph on more complicated finite fields
+It should be noted, though, that it is indeed possible to construct a field with four elements.
+This is done by quotienting out $\fp[2]$ \ldots % TBC
 
 The question of finding inverses in $\zn$ has a well understood, general solution, which involves the euclidean algorithm.
 \begin{definition}
@@ -40,22 +44,24 @@ Using the steps of the algorithm, it is possible to calculate
 \end{align*}
 So $3 = 3\times15 - 2\times21$. This relates to inverses in a finite field in the following way.
 \begin{definition}
-	Let $a,b \in \Z$ and $m \in \N$ A linear congruence is an equation of the form
+	Let $a,b \in \Z$ and $n \in \N$. A linear congruence is an equation of the form
 	$$ax \equiv b \mod n$$
 \end{definition}
 Recall this basic definition from \texttt{MATH111}. The solutions of such equations are well understood, as given by this straightforward proposition.
 \begin{proposition}
-	The equation $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.
+	The equation $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.\label{congruencesolutions}
 \end{proposition}
 \begin{proof}
 	Let $d = \gcd(a,n)$. To prove $\Rightarrow$, suppose that the congruence has solutions. Let $x \in \Z$ be a solution, such that we can write $ax = qn + b$ for some $q \in \Z$, and therefore $b = ax - qn$. Since $d|a$ and $d|n$, clearly $d|b$.
 
-	For  $\Leftarrow$, supposing that $d|b$, or $b=td$ for some $t \in \Z$. We can write $d = ra + sm$ for some $r,s \in \Z$, and therefore
+	For  $\Leftarrow$, supposing that $d|b$, or $b=td$ for some $t \in \Z$. We can write $d = ra + sn$ for some $r,s \in \Z$, and therefore
 	$$b = td = t(ra + sn) = a(tr) + (ts)n \equiv a(tr) \mod n$$
 	and the congruence has $x = tr$ as a solution.
 \end{proof}
-This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of an element $x$, we need to solve
+This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of a nonzero element $x$, we need to solve
 $$ax \equiv 1 \mod n,$$
-which clearly implies that $a$ and $n$ must be coprime for an inverse to exist. Therefore all elements $\{0,1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field. Clearly, this happens if and only if $n$ is prime.
+where \Cref{congruencesolutions} clearly implies that $a$ and $n$ must be coprime for an inverse to exist. Therefore all elements $\{1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field. Clearly, this happens if and only if $n$ is prime.
 
-This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is composite: namely, all elements which are coprime to $n$ will still have an inverse. Thus, $\zn$ will ``sort of work'' as a field. This idea will be revisited later.
+% This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is composite: namely, all elements which are coprime to $n$ will still have an inverse.
+% Thus, $\zn$ will ``sort of work'' as a field.
+% This idea will be revisited later.

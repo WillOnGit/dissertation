@@ -1,11 +1,50 @@
+\subsubsection{Affine Space}
+The main object of interest in this subsection is the projective plane.
+Before we introduce it, though, we begin with a prerequisite definition.
+
+\begin{definition}
+	Let $k$ be an algebraically closed field. Define affine $n$-space, or $\an$, to be the set of all $n$-tuples, or points,
+	$$\an = \{ (a_1,a_2,\ldots,a_n) | a_i \in \C\}.$$
+\end{definition}
+
+The consideration of algebraically closed fields differentiates affine space from $\R^2$, where, unless otherwise mentioned, we take the field $k = \C$.
+We call affine 2-space, or $\an[2]$, the \emph{affine plane}.
+
+In the affine plane, it is possible to define \emph{affine curves} in the following way.
+\begin{definition}
+	For a given polynomial $f$ in two variables $x$ and $y$, an \emph{affine curve} is the set $V(f)$ of all points $(x,y)$ such that $f(x,y)=0$. More concisely,
+	$$V(f) = \{(x,y) | f(x,y)=0$$
+\end{definition}
+It is important to distinguish the two objects $V(f)$ and $f$, as $f$ is simply a polynomial, whereas $V(f)$ is the set of points that are a solution to a polynomial \emph{equation} $f(x,y)=0$.
+However, for convenience, we write the curve $V(f)$ as its defining polynomial equation $f(x,y)=0$, when it is clear to do so.
+The distinction of objects remains, though, and this is purely notational.
+% unfinished
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[scale=0.5,domain=-5:5]
+		% axes
+		\draw[->] (-5,0) -- (5,0);
+		\draw[->] (0,-5) -- (0,5);
+		\node [right] at (5,0) {$x$};
+		\node [right] at (0,5) {$y$};
+		% graph
+		\draw 
+		plot (\x, {\x});
+	\end{tikzpicture}
+	\caption{The affine curve $x^3 - 2xy = 0$}
+	\label{affinecurveexample}
+\end{figure}
+
+\subsubsection{Projective Space}
 The projective plane is an idea that grew out of the renaissance study of perspective in art.
-For example, when stood between two railway lines, they appear to meet at the horizon. \Cref{projective-parallel} is a rudimentary diagram of the situation.
+For example, when stood between two railway lines, they appear to meet at the horizon.
+\Cref{projective-parallel} is a rudimentary diagram of the situation.
 While this is merely a trick of perspective in euclidean space, in the projective plane, parallel lines \emph{do} meet, at a so called `point at infinity'.
 The idea is to add these points at infinity to the euclidean plane so that each line contains exactly one.
 On top of this is the one exception, the `line at infinity', which is defined to be the unique line that is simply the collection of all points at infinity.
-These ideas, while formative, are hardly rigorous, and we present the proper definition and constructions (there are two) of projective space below.
+These ideas, while formative, are not rigorous, and we present the proper definition and constructions (there are two) of projective space below.
 
-\begin{figure}[htpb]
+\begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}[scale=0.5]
 		% railway lines
@@ -30,26 +69,29 @@ These ideas, while formative, are hardly rigorous, and we present the proper def
 \end{figure}
 
 \begin{definition}
-	The projective plane is an extension of regular 2-dimensional euclidean space by adding `points at infinity' such that every pair of lines intersects exactly once. Points in the projective plane are represented as triples of homogeneous coordinates [X,Y,Z]. More generally, points in projective $n$-space are represented by $n+1$-tuples, such that not all coordinates are zero.
+	The projective plane is an extension of the affine plane $\an[2]$ created by adding `points at infinity' such that every pair of lines intersects exactly once.
+	Points in projective $n$-space are represented by $n+1$-tuples modulo an equivalence relation, such that not all coordinates are zero.
 \end{definition}
 
 The two constructions of projective space give two different interpretations of it, both of which are useful to consider.
-% perhaps explain affine space (haha) too?
 Projective $n$-space can be thought of as either affine $n$-space with points at infinity added (mentioned already) or as a quotient of affine $(n+1)$-space.
 
 \subsubsection{Construction 1: Quotient of $\an[n+1]$}
 Remove the origin (i.e. the point $(0,0,\ldots,0)$) from $\an[n+1]$ and define an equivalence relation $\sim$ on the remaining points as follows:
 $$(a_0,a_1,\ldots,a_n) \sim (b_0,b_1,\ldots,b_n) \iff (a_0,a_1,\ldots,a_n) = \lambda(b_0,b_1,\ldots,b_n)$$
-where $\lambda$ is a non-zero scalar. Then we have 
+where $\lambda$ is a non-zero scalar in $\C$. Then we have 
 $$\pn = (\an[n+1]\setminus\{(0,\ldots,0)\})/\sim,$$
 the set of equivalence classes of $\sim$.
 
-For points in $\pn$, write $P = [p_0,p_1,\ldots,p_n]$, where the square brackets represent \emph{homogeneous coordinates}.
-By the nature of this construction, we see that scaling homogeneous coordinates results in coordinates of the same point.
-Therefore, for a given point, there is no unique representation in homogeneous coordinates.
+Therefore, we see that points in $\pn$ are equivalence classes of lines in $\an[n+1] \setminus \{0\}$.
+For points in $\pn$, write $P = [p_0,p_1,\ldots,p_n]$, where the square brackets represent the \emph{homogeneous coordinates} of the point.
+We see that $[p_0,p_1,\ldots,p_n] = \{(\lambda a_0, \lambda a_1,\ldots,\lambda a_n | \lambda \in \C\}$.
+
+By the nature of this construction, it is clear that scaling homogeneous coordinates results in coordinates of the same point.
+Therefore, for a given point, there is no unique representation in homogeneous coordinates, and we may scale coordinates for our convenience.
 
 \subsubsection{Construction 2: Extension of $\an[n]$}
-Now we present the second construction of $\pn$, which can be thought of as adding points at infinity to euclidean space.
+Now we present the second construction of $\pn$, which can be thought of as adding points at infinity to affine $n$-space.
 This is done inductively on $n$ by defining maps $\alpha_n$ and $\beta_n$.
 To begin with, let $\pn[0] = \an[1] \setminus \{0\}$ and let
 \begin{alignat*}{2}
@@ -60,7 +102,7 @@ Then we can define
 $$\pn = \alpha_n(\an) \cup \beta_n(\pn[n-1])$$
 Effectively, we have that $\alpha_n$ is the embedding of affine space in $\pn$ and $\beta_n$ represents the points at infinity of $\pn$.
 Notice that the image of $\beta_n$ will always give valid homogeneous coordinates, as we removed zero from $\pn[0]$, and therefore at least one of the first $n$ coordinates will be nonzero.
-\subsubsection{Homogenisation of Functions}
+\subsubsection{Homogenisation of Polynomials}
 Since homogeneous coordinates are not unique, it is not always possible to define curves in projective space in the usual form of $F(X,Y,Z)=0$. To that extent, when working with the projective plane, it is convenient to define a homogeneous function as a function which satisfies
 $$F(tX_1,tX_2,\ldots,tX_n)=t^k F(X_1,X_2,\ldots,X_n)$$
 for some $k$. We see that these kinds of functions \emph{are} well-defined in the projective plane, since
@@ -80,12 +122,14 @@ To summarise, it is possible to move to and from the projective plane with regar
 A point $(x,y)$ can be mapped to $[x,y,1]$, and from $[X,Y,Z]$ to $(X/Z,Y/Z)$.
 A polynomial $f(x,y)$ can be mapped to $F(X,Y,Z) = Z^d f(x/Z,y/Z)$, and back by mapping $F(X,Y,Z)$ to $f(x,y) = F(x,y,1)$.
 
-\begin{figure}[htpb]
+\begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}[scale=0.5,domain=-5:5]
 		% axes
 		\draw[->] (-5,0) -- (5,0);
 		\draw[->] (0,-5) -- (0,5);
+		\node [right] at (5,0) {$x$};
+		\node [right] at (0,5) {$y$};
 		% lines
 		\draw 
 		plot (\x, {0.5*\x+1});
