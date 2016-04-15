@@ -37,7 +37,11 @@ In affine $n$-space, it is possible to define \emph{affine curves} in the follow
 
 It is important to distinguish the two objects $V(f)$ and $f$, as $f$ is simply a polynomial, whereas $V(f)$ is the set of points that are a solution to a polynomial \emph{equation} $f(x_1,\ldots,x_n)=0$.
 However, for convenience, we write the curve $V(f)$ as its defining polynomial equation $f(x,y)=0$, when it is clear to do so.
-The distinction of objects remains, though, and this is purely notational. Another point on notation is that in the affine plane, instead of $x_1$ and $x_2$, we write $x$ and $y$.
+The distinction of objects remains, though, and this is purely notational.
+
+More points on notation are that in the affine plane, instead of $x_1$ and $x_2$, we write $x$ and $y$, lowercase.
+We also write polynomials as lowercase letters $f$, $g$ etc.
+The reason for this will be explained shortly.
 \subsubsection{Projective Space}
 Now that affine space has been introduced, we are ready to introduce projective $n$-space $\pn$, and with that, the projective plane $\pn[2]$.
 
@@ -74,10 +78,10 @@ These ideas, while formative, are not rigorous, and we present the proper defini
 	\label{projective-parallel}
 \end{figure}
 
-\begin{definition}
-	The projective plane is an extension of the affine plane $\an[2]$ created by adding `points at infinity' such that every pair of lines intersects exactly once.
-	Points in projective $n$-space are represented by $n+1$-tuples modulo an equivalence relation, such that not all coordinates are zero.
-\end{definition}
+% \begin{definition}
+% 	The projective plane is an extension of the affine plane $\an[2]$ created by adding `points at infinity' such that every pair of lines intersects exactly once.
+% 	Points in projective $n$-space are represented by $n+1$-tuples modulo an equivalence relation, such that not all coordinates are zero.
+% \end{definition}
 
 The two constructions of projective space give two different interpretations of it, both of which are useful to consider.
 Projective $n$-space can be thought of as either affine $n$-space with points at infinity added (mentioned already) or as a quotient of affine $(n+1)$-space.
@@ -109,16 +113,26 @@ $$\pn = \alpha_n(\an) \cup \beta_n(\pn[n-1])$$
 Effectively, we have that $\alpha_n$ is the embedding of affine space in $\pn$ and $\beta_n$ represents the points at infinity of $\pn$.
 Notice that the image of $\beta_n$ will always give valid homogeneous coordinates, as we removed zero from $\pn[0]$, and therefore at least one of the first $n$ coordinates will be nonzero.
 \subsubsection{Homogenisation of Polynomials}
-Since homogeneous coordinates are not unique, it is not always possible to define curves in projective space in the usual form of $F(X,Y,Z)=0$. To that extent, when working with the projective plane, it is convenient to define a homogeneous function as a function which satisfies
+Now that projective space has been introduced, it is natural to wonder what form curves in projective space take.
+If we try to define projective curves in $\pn$ in the same way as affine curves, i.e. as solutions of a polynomial equation $f(x_1,\ldots,x_n)=0$ in $n$ variables, we find that it is not always possible, since we saw that the homogeneous coordinates of a point are not unique.
+For example, if we tried to define a projective curve as $F(X,Y,Z)=X^2+Y+Z=0$, we see that $[2,-2,-2]$ is a solution of this equation, and so $[2,-2,-2] \in F$.
+However, since we work with homogeneous coordinates, the point $[2,-2,-2]$ is also be written as $[-2,2,2]$, which clearly does not satisfy $F(X,Y,Z)=0$.
+This is a problem, as we do not want the representation of a point to affect whether it lies on a curve or not.
+
+To that extent, when working with the projective plane, it is convenient to define a homogeneous polynomial as a polynomial which satisfies
 $$F(tX_1,tX_2,\ldots,tX_n)=t^k F(X_1,X_2,\ldots,X_n)$$
-for some $k$. We see that these kinds of functions \emph{are} well-defined in the projective plane, since
+for some $t \in \C$ and $k \in \N$. We see that these kinds of polynomials are able to define curves in the projective plane, as for a homogeneous polynomial $F$,
 $$F(X_1,X_2,\ldots,X_n)=0 \Leftrightarrow F(tX_1,tX_2,\ldots,tX_n) = t^k F(X_1,X_2,\ldots,X_n) = 0$$
-For this document, we need only focus on polynomials, and it is easy enough to see that a polynomial is homogeneous if and only if the degree of each monomial $= d$, for some $d \in \N$.
+
+It is easy enough to see that a polynomial is homogeneous if and only if the degree of each monomial $= d$, for some $d \in \N$.
 So the polynomial $\frac{1}{2}x^4 + x^2y^2 + 14xy^3$ is homogeneous with degree 4, whereas the polynomial $17x^5 + 12x^2y + 2$ is not, as the monomials have degrees 5, 3 and 0, from left-to-right.
 
-It is possible to homogenise a given polynomial $F(x_1,\ldots,x_n)$ by letting $F' = F'(x_0,x_1,\ldots,x_n) = x_0^d F(\frac{x_1}{x_0},\ldots,\frac{x_n}{x_0})$, where $d$ is the maximum degree of all monomials of $F$. In practice, this resembles `topping up' the monomials with an extra variable as necessary.
+It is possible to homogenise a given polynomial $f(x_1,\ldots,x_n)$ by letting
+$$F = F(X_1,X_2,\ldots,X_{n+1}) = (X_{n+1})^d f(\frac{X_1}{X_{n+1}},\ldots,\frac{X_n}{X_{n+1}}),$$
+where $d$ is the maximum degree of all monomials of $F$.
+In practice, this resembles `topping up' the monomials with an extra variable as necessary.
 So the inhomogeneous polynomial $17x^5 + 12x^2y + 2$ discussed earlier can be homogenised as $17X^5 + 12X^2YZ^2 + 2Z^5$.
-The reverse transition can be made also, simply by letting $F(x_1,\ldots,x_n) = F(1,x_1,\ldots,x_n)$, which looks like simply taking out the extra variable.
+The reverse transition can be made also, simply by letting $f = f(x_1,\ldots,x_n) = F(x_1,\ldots,x_n,1)$, which looks like simply taking out the extra variable.
 
 There are a few things to notice here.
 First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
@@ -159,13 +173,36 @@ From now on, we also limit ourselves to the projective plane $\pn[2]$.
 	A projective curve is the set of points defined by a \emph{homogeneous} polynomial equation $F(X_1,X_2,\ldots,X_n) = 0$.
 	When discussing the projective plane $\pn[2]$, we write $F(X,Y,Z) = 0$.
 \end{definition}
-The degree of a curve is the degree of the polynomial in the defining equation, quite naturally.
-For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ and $Z^2=0$ all define projective curves in $\pn[2]$.
+The degree of a curve is the degree of the polynomial in the defining equation.
+For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ and $Z^2 + \frac{1}{2}Y^2 = 0$ all define projective curves in $\pn[2]$.
 The first two have degree 3, the third, degree 2.
 
 \begin{definition}
-	A singular point on a curve $f$ is a point where all partial derivatives $F_x$, $F_y$ and $F_z$ vanish. A point that is not a singular point is called a regular point.
+	A singular point on a curve $F$ is a point where all partial derivatives $F_X$, $F_Y$ and $F_Z$ vanish. A point that is not a singular point is called a regular point.
 \end{definition}
+Two good examples of projective curves with singular points are provided by the \emph{cusp} $C : Y^2Z - X^3$ and the \emph{node} $N : Y^2Z - X^3 - X^2Z$, which are illustrated in \Cref{cuspandnode}.
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[scale=0.5,domain=-5:5]
+		% axes
+		\draw[->] (-5,0) -- (5,0);
+		\draw[->] (0,-5) -- (0,5);
+		\node [right] at (5,0) {$x$};
+		\node [right] at (0,5) {$y$};
+		% graph
+		\draw 
+		plot (\x, {\x});
+	\end{tikzpicture}
+	\caption{The affine curve $x^3 - 2xy = 0$ in the visible part of $\an[2]$}
+	\label{affinecurveexample}
+\end{figure}
+We can see that the point $[0,0,1]$ (the origin in the affine plane) is a singular point on both curves, since
+\begin{align*}
+	C_x = 3X^2\\
+	C_y = 2YZ\\
+	C_z = Y^2
+\end{align*} % alignat
+
 Singular points are important to consider as they are the points where there is no sensible notion of the tangent to a curve.
 The importance of this will become apparent later on.
 An alternative characterisation of a singular point is that the intersection multiplicity of a line and the curve at that point is always greater than one.
