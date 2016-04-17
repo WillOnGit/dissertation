@@ -1,1 +1,11 @@
-\lipsum[1-3]
+Elliptic curves over finite fields also appear in \emph{elliptic curve cryptography}.
+This term refers to multiple schemes of cryptography, all of which rely on elliptic curves over finite fields.
+Common to all schemes is the difficulty of the \emph{discrete logarithm problem}, in much the same way that schemes like RSA rely on the difficulty of factoring large integers.
+The discrete logarithm problem is stated as follows:
+
+Given $a,b \in \fp$, find $m$ such that $a^m \equiv b \mod p$.
+
+Clearly the requirement to work in $\fp$ is important, otherwise $m = \log_a(b)$ and the question is trivial.
+The problem can be refactored in terms of elliptic curves by considering two distinct points $P$ and $Q$ on a curve $E$, and considering the following.
+
+Given $P,Q \in E(\fp)$, find $m$ such that $mP = Q$.

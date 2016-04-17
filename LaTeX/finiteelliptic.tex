@@ -1,5 +1,35 @@
 \subsubsection{The Reduction mod $p$ Map}
-\lipsum[1-3]
+Now that the groundwork for elliptic curves has been laid, we are ready to address the main subject matter, that of elliptic curves over finite fields.
+As stressed before, we restrict our attention to finite fields of the form $\zn[p]$, the integers modulo a prime $p$.
+We will also take all of our curves to be in Weierstrass form from here out.
+%
+% FF<-0:28
+% 
+% # curve is y^2 = 4x^3 + 2x + 1
+% 
+% xpoints<-numeric()
+% ypoints<-numeric()
+% 
+% for(x  in FF){
+%   for(y in FF){
+%     if((y^2)%%29==(4*x^3 + 2*x +1)%%29){
+%       xpoints<-c(xpoints,x)
+%       ypoints<-c(ypoints,y)
+%     }
+%   }
+% }
+% 
+% plot(xpoints,ypoints,xlab="x",ylab="y")
+
+Instead of taking points on an elliptic curve $E$ in $\pn[2]$ as usual, we simply take curves with coefficients in $\fp$ and solutions in $\fp \times \fp$.
+The visible part of the curve is therefore represented by a collection of points in $\fp \times \fp$, with an additional point at infinity $\pai$ at $[0,1,0]$.
+\Cref{finitecurve} gives an example of a curve over a finite field.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{../Figures/finiteellipticcurve.png}
+	\caption{The curve $y^2 = 4x^3 + 2x + 1$ over $\fp[29]$}
+	\label{finitecurve}
+\end{figure}
 \subsubsection{Addition Formulae for Points}
 For elliptic curves over a finite field $\mathbb{F}_p$, when adding points $(x_1,y_1) + (x_2,y_2) = (x',y')$,
 $$x'=\lambda^2 - a - x_1 - x_2,\quad y' = \lambda x_1 -\lambda x' - y_1 $$
