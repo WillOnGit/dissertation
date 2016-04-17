@@ -1,6 +1,8 @@
-% This .tex file is simply the statement and proof of Gauss' theorem. To be inserted normally into the main document.
+% This .tex file is simply the statement and proof of Gauss' theorem.
+% To be inserted normally into the main document.
 %
-% The structure of this proof is fairly convoluted. It can be broken down as follows:
+% The structure of this proof is fairly convoluted.
+% It can be broken down as follows:
 % Introduce homomorphism
 % Easy case
 % Difficult case
@@ -15,22 +17,27 @@
 % 	Prove A satisfies the useful conditions
 
 \begin{theorem}
-Define $M_p$ to be the number of projective solutions to the equation $x^3 + y^3 + z^3 = 0$ in the field $\fp$. Then,
+Define $M_p$ to be the number of projective solutions to the equation $x^3 + y^3 + z^3 = 0$ in the field $\fp$.
+Then,
 \begin{itemize}
 \item if $p \not\equiv 1 \mod{3}$, then $M_p = p + 1$.
 \item otherwise $p \equiv 1 \mod{3}$, and there exist integers $A$ and $B$ such that
 	$$4p = A^2 + 27B^2$$
-	Since $A^2 \equiv 1 \mod{3}$, $A \equiv \pm1 \mod{3}$. If we fix the sign of $A$ so that $A \equiv 1 \mod{3}$, then
+	Since $A^2 \equiv 1 \mod{3}$, $A \equiv \pm1 \mod{3}$.
+	If we fix the sign of $A$ so that $A \equiv 1 \mod{3}$, then
 	$$M_p = p + 1 + A$$
 \end{itemize}
 \end{theorem}
 
 \begin{proof}
-The proof of the two separate cases both rely on the same idea, but in the second case requires many more steps before the result is reached, and beginning the proof without an idea of what is to come can make it very hard to understand, as numerous objects are introduced. Therefore we will prove the first case, provide an outline of the proof second case and then finally supply the details.
+The proofs of the two separate cases both rely on the same idea, but in the second case requires many more steps before the result is reached.
+Therefore we prove the first case, then provide an outline of the proof second case before proving it.
 
-For both cases, the proof revolves around examining the homomorphism
+For both cases, the proof revolves around examining the group homomorphism
 $$\varphi: \fpu \rightarrow \fpu \qquad x \mapsto x^3$$
-Now in the first case, since 3 does not divide the order of $\fpu$, $\varphi$ is bijective, and so an isomorphism. This means that each element of $\fp$ has exactly one cube root. For example, in $\fp[11]$, we have:
+Now in the first case, since 3 does not divide the order of $\fpu$, $\varphi$ is bijective, and so an isomorphism.
+This means that each element of $\fp$ has exactly one cube root, since $0^3=0$ in any field.
+For example, in $\fp[11]$, we have:
 \begin{align*}
 	0^3 &= 0,\quad
 	1^3 = 1,\quad
@@ -44,7 +51,9 @@ Now in the first case, since 3 does not divide the order of $\fpu$, $\varphi$ is
 	4^3 = 9,\quad
 	10^3 = 10.
 \end{align*}
-This implies that every solution of $x + y + z = 0$ gives exactly one solution of $x^3 + y^3 + z^3 = 0$ by cube rooting each of $x,y,z$. Since $x + y + z = 0$ is the equation of a line in the projective plane, it has exactly $p+1$ solutions. This settles the first case.
+This implies that every solution of $x + y + z = 0$ gives exactly one solution of $x^3 + y^3 + z^3 = 0$ by taking the cube root of each of $x,y,z$.
+Since $x + y + z = 0$ is the equation of a line in the projective plane, it has exactly $p+1$ solutions.
+This settles the first case.
 
 Now to outline what happens in the second case.
 \begin{itemize}
@@ -58,7 +67,9 @@ Now to outline what happens in the second case.
 \end{itemize}
 So after getting an initial expression for $M_p$, we basically update it a lot through many smaller arguments, eventually arriving at the one we need.
 
-Since $p \equiv 1 \mod{3}$, 3 divides the order of $\fpu = p-1$, and so $\varphi$ is a homomorphism that is neither injective nor surjective. For example, in $\fp[13]$, we have:
+Since $p \equiv 1 \mod{3}$, write $p = 3m + 1$.
+Since 3 divides the order of $\fpu = p-1 = 3m$, $\varphi$ is a homomorphism that is neither injective nor surjective.
+For example, in $\fp[13]$, we have:
 \begin{align*}
 	0^3 &= 0\\
 	1^3 = 3^3 = 9^3 &= 1\\
@@ -66,41 +77,56 @@ Since $p \equiv 1 \mod{3}$, 3 divides the order of $\fpu = p-1$, and so $\varphi
 	2^3 = 5^3 = 6^3 &= 8\\
 	4^3 = 10^3 = 12^3 &= 12\\
 \end{align*}
-Now, we can introduce our sets $R$, $S$ and $T$. Let
+Now, we can introduce our sets $R$, $S$ and $T$.
+Let
 $$R=\{x^3:x\in \fpu\}$$
-and let $S = sR$ and $T = s^2R$, where $s$ is any element not in $R$. We now have a partition of $\fp$ as follows:
+and let $S = sR$ and $T = s^2R$, where $s$ is any element of $\fpu$ not in $R$.
+We now have a partition of $\fp$ as follows:
 $$\fp = \{0\} \cup R \cup S \cup T$$
-Notice that $\#R = \#S = \#T = m$. Since $-1=(-1)^3$, $-1 \in R$ and $R = -R$, which implies that $S=-S$ and $T=-T$.
-Now that we have our partition of $\fp$, we can reason about $M_p$, the object of interest in this proof. First, though, we introduce an important new notation. For $X,Y,Z \subset \fp$:
-$$[X,Y,Z] = \#(x,y,z) : x\in X,\quad y\in Y,\quad z\in Z\quad \& \quad x+y+z=0$$
+Notice that $|R| = |S| = |T| = m$.
+Since $-1=(-1)^3$, $-1 \in R$ and $R = -R$, which implies that $S=-S$ and $T=-T$.
+Now that we have our partition of $\fp$, we can reason about $M_p$, the object of interest in this proof.
+First, though, we introduce a new notation.
+For $X,Y,Z \subset \fp$:
+$$[X,Y,Z] = |\{(x,y,z) | x\in X,\quad y\in Y,\quad z\in Z\quad \text{and} \quad x+y+z=0\}|$$
 For simplicity, we will sometimes write $[XYZ]$ instead of $[X,Y,Z]$.
 Note that this is different to writing homogenous coordinates in the projective plane!
 
-The symbol $[]$ has a number of useful properties, such as:
+The symbol $[;]$ has a number of useful properties, such as:
 \begin{align*}
 	[XY(Z\cup W)] &= [XYZ] + [XYW]\quad \si Z\cap W = \emptyset\\
 	[XYZ] &= [aX, aY, aZ]\quad \for a\neq0\\
 	[XYZ] &= [XZY] = \ldots
 \end{align*}
-These properties are important and we will use them later to manipulate our initial expression for $M_p$. 
+These properties are important and we will use them later to manipulate our initial expression for $M_p$.
 
-Now, if $xyz\neq0$, then the number of ways of writing $0$ as a sum of non-zero cubes is $[RRR]$, simply by the definitions of the symbol $[]$ and the set $R$. But each element of $R$ has three distinct cube roots, and so there are $(3 \times 3 \times 3) [RRR] = 27[RRR]$ solutions of $x^3 + y^3 + z^3 = 0$ of the form $(x,y,z)$ where $xyz \neq 0$. But since we are working in the projective plane, scalar multiples of the same point are in fact the same point, so we have to divide by $p-1$ for all of the non-zero multipliers of $\fp$, which gives
+Now, if $xyz\neq0$, then the number of ways of writing $0$ as a sum of non-zero cubes is $[RRR]$, simply by the definitions of the symbol $[;]$ and the set $R$.
+But each element of $R$ has three distinct cube roots, and so there are $(3 \times 3 \times 3) [RRR] = 27[RRR]$ solutions of $x^3 + y^3 + z^3 = 0$ of the form $(x,y,z)$ where $xyz \neq 0$.
+But since we are working in the projective plane, scalar multiples of the same point are in fact the same point, so we have to divide by $p-1$ for all of the non-zero multiples in $\fp$, which gives
 $$\frac{27[RRR]}{p-1} = \frac{27[RRR]}{3m} = \frac{9[RRR]}{m}$$
 projective solutions where $xyz\neq0$.
 
-Now, when one of $x$, $y$ or $z$ is zero, say $x$, neither $y$ nor $z$ can be zero, as either being zero would force the other to also be zero, and the solution $(0,0,0)$ is not allowed in the projective plane. Thus there are $p-1$ choices for $y$, each of which gives three choices of $z$ (by solving $y^3 = -x^3$ and remembering that each element has three cube roots), which means there are $3(p-1)$ solutions when $x=0$. The same goes for $y$ and $z$ being zero, so we have a total of $9(p-1)$ solutions where $xyz=0$. However, again, we must divide through by $p-1$, so there are 9 projective solutions when $xyz=0$. This covers all cases, and so we have established that
+Now, when one of $x$, $y$ or $z$ is zero, say $x$, neither $y$ nor $z$ can be zero, as either being zero would force the other to also be zero, and the solution $(0,0,0)$ is not allowed in the projective plane.
+Thus there are $p-1$ choices for $y$, each of which gives three choices of $z$ (by solving $y^3 = -x^3$ and remembering that each element has three cube roots), which means there are $3(p-1)$ solutions when $x=0$.
+The same goes for $y$ and $z$ being zero, so we have a total of $9(p-1)$ solutions where $xyz=0$.
+However, again, we must divide through by $p-1$, so there are 9 projective solutions when $xyz=0$.
+This covers all cases, and so we have established that
 \begin{equation}
 M_p = \frac{9[RRR]}{m} + 9 = 9 \left(\frac{[RRR]}{m}+1\right) \label{g_initial}
 \end{equation}
-The rest of the proof now relies on modifying this expression until we have the stated result. First of all, we use some properties of $[]$ to simplify \eqref{g_initial}.
+The rest of the proof now relies on modifying this expression until we have the stated result.
+First of all, we use some properties of $[;]$ to simplify \eqref{g_initial}.
 
-To begin with, recall that $\fp = {0} \cup R \cup S \cup T$, a disjoint union. Also, notice that $[RR\fp] = m^2$, since there are $m$ choices for each element of $R$, say $r_1$ and $r_2$, and then let the element of $\fp$ be $-r_1r_2$. Using these two facts, we see that
+To begin with, recall that $\fp = {0} \cup R \cup S \cup T$, a disjoint union.
+Also, notice that $[RR\fp] = m^2$, since there are $m$ choices for each element of $R$, say $r_1$ and $r_2$, and then let the element of $\fp$ be $-r_1r_2$.
+Using these two facts, we see that
 \begin{equation}
 	[RR\{0\}] + [RRR] + [RRS] + [RRT] = m^2 \label{g_manipulate1}
 \end{equation}
 now fix $s \in S$ and $t \in T$.
 $$[RRS] = [sR, sR, sS] = [SST]$$
-and likewise, $[RRT] = [TTS]$. Substituting these into \eqref{g_manipulate1}, we have
+and likewise, $[RRT] = [TTS]$.
+Substituting these into \eqref{g_manipulate1}, we have
 \begin{equation}
 	[RR\{0\}] +[RRR] + [SST] + [TTS] = m^2 \label{g_manipulate2}
 \end{equation}
@@ -108,7 +134,10 @@ Again using the disjoint union of $\fp$ and $[\fp TS] = m^2$ (for the same reaso
 \begin{equation}
 	[\fp TS] = [\{0\}TS] + [RTS] + [STS] + [TTS] = m^2 \label{g_manipulate3}
 \end{equation}
-Recall that $[STS] = [SST]$. Now notice two things, first, that $[\{0\}TS] = 0$, since $T = -T$, $S = -S$ and $T \cap S = \emptyset$. Secondly, $[RR\{0\}] = m$, since each element of $R$ has exactly one inverse, also in $R$. Combine these observations with substracting \eqref{g_manipulate2} from \eqref{g_manipulate3} and we end up with
+Recall that $[STS] = [SST]$.
+Now notice two things, first, that $[\{0\}TS] = 0$, since $T = -T$, $S = -S$ and $T \cap S = \emptyset$.
+Secondly, $[RR\{0\}] = m$, since each element of $R$ has exactly one inverse, also in $R$.
+Combine these observations with substracting \eqref{g_manipulate2} from \eqref{g_manipulate3} and we end up with
 \begin{equation*}
 	[RTS] = [RRR] + m
 \end{equation*}
@@ -118,19 +147,27 @@ Now we can substitute this into our initial expression as follows:
 	    &= \frac{9}{m}\left([RRR] + m\right)\\
 	    &= \frac{9[RTS]}{m}
 \end{align*}
-This is the end of our initial manipulations. We now proceed to use \emph{cubic Gauss sums} to find an expression for $[RTS]$. Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
+This is the end of our initial manipulations.
+We now proceed to use \emph{cubic Gauss sums} to find an expression for $[RTS]$.
+Let $\zeta = e^{2\pi i/p}$, the $p$-th root of unity, and define three complex numbers $\alpha_1$, $\alpha_2$ and $\alpha_3$ as follows:
 $$\alpha_1 = \sum_{r\in R} \zeta^r,\quad \alpha_2 = \sum_{s\in S} \zeta^s,\quad \alpha_3 = \sum_{t\in T} \zeta^t$$
-These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic Gauss sums. They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for. Recall that a general cubic polynomial $P(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
+These numbers are each a sum of $m$ distinct $p$-th roots of unity, and they are the cubic Gauss sums.
+They also happen to be the three roots of a cubic polynomial $f(t)$, which we now find an expression for.
+Recall that a general cubic polynomial $P(t)$ in $t$ with roots $\alpha$, $\beta$ and $\gamma$ can be calculated as
 $$ P(t) = (t-\alpha)(t-\beta)(t-\gamma) = t^3 - (\alpha + \beta + \gamma)t^2 + (\alpha \beta + \alpha \gamma + \beta \gamma)t - \alpha \beta \gamma $$
 For the coefficient of $t^2$, notice that
 $$ 0 = \zeta^p -1 = (\zeta - 1)(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) $$
-and since $\zeta-1 \neq 0$, $(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) = 0$. Therefore, $\alpha_1 + \alpha_2 + \alpha_3 = -1$, and the coefficient of $t^2 = 1$.
+and since $\zeta-1 \neq 0$, $(\zeta^{p-1}+\zeta^{p-2}+\cdots+\zeta+1) = 0$.
+Therefore, $\alpha_1 + \alpha_2 + \alpha_3 = -1$, and the coefficient of $t^2 = 1$.
 
-To find the other coefficients, multiply two of the $a_i$s together, say $\alpha_2$ and $\alpha_3$. Then
+To find the other coefficients, multiply two of the $a_i$s together, say $\alpha_2$ and $\alpha_3$.
+Then
 $$\alpha_2 \alpha_3 = \sum_{s\in S} \zeta^s \cdot \sum_{t\in T}\zeta^t=\sum_{s \in S, t\in T}\zeta^{s+t} = \sum_{x\in \fp}N_x \zeta^x$$
-where $N_x$ is the number of pairs $(s,t)$ with $s \in S$ and $t \in T$ such that $s+t=x$. For $r \in R$, notice that
+where $N_x$ is the number of pairs $(s,t)$ with $s \in S$ and $t \in T$ such that $s+t=x$.
+For $r \in R$, notice that
 $$N_x = [ST{-x}] = [rS,rT,{-rx}]=[S,T,{-rx}]=N_{rx}$$
-which shows that $N_x$ depends only on the coset $R$, $S$ or $T$ in which $x$ lies. Therefore,
+which shows that $N_x$ depends only on the coset $R$, $S$ or $T$ in which $x$ lies.
+Therefore,
 \begin{equation*}
 	mN_x = [S,T,Rx] = \left\{
 		\begin{array}{rl}
@@ -142,7 +179,8 @@ which shows that $N_x$ depends only on the coset $R$, $S$ or $T$ in which $x$ li
 \end{equation*}
 Define integers $a$, $b$ and $c$ by
 $$[STR] = ma,\quad [STS] = mb,\quad [STT] = mc$$
-Recall our current working expression for $M_p=\frac{9[RTS]}{m}$. Then
+Recall our current working expression for $M_p=\frac{9[RTS]}{m}$.
+Then
 $$M_p = 9a$$
 and
 $$\alpha_2\alpha_3 = a\alpha_1 + b\alpha_2 + c\alpha_3$$
@@ -162,7 +200,8 @@ But
 \end{align*}
 So we see that
 $$\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3 = -m$$
-Finally, we need to calculate $\alpha_1\alpha_2\alpha_3$. We do this by calculating the sum of squares of the $\alpha_i$ as follows:
+Finally, we need to calculate $\alpha_1\alpha_2\alpha_3$.
+We do this by calculating the sum of squares of the $\alpha_i$ as follows:
 $$\alpha_1^2 + \alpha_2^2 + \alpha_3^2 = (\alpha_1 + \alpha_2 + \alpha_3)^2 - 2(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3) = 1 + 2m$$
 Now we can write
 \begin{align*}
@@ -175,11 +214,13 @@ and sum these to get
 	3\alpha_1 \alpha_2 \alpha_3 &= a(\alpha_1^2 + \alpha_2^2 + \alpha_3^2) + (b+c)(\alpha_1\alpha_2 +\alpha_1\alpha_3 +\alpha_2\alpha_3)\\
 	&= a(1+2m) +(b+c)(-m) = a + km
 \end{align*}
-where $k$ is yet another new letter, defined as $k = 2a-b-c=3a-m$. This is the last coefficient of $f(t)$ we need to calculate, and thus
+where $k$ is yet another new letter, defined as $k = 2a-b-c=3a-m$.
+This is the last coefficient of $f(t)$ we need to calculate, and thus
 $$f(t) = t^3 + t^2 - mt - \frac{a+km}{3}$$
 We then update our expression for $M_p$ once more, and have
 $$M_p = 9a = 3(k + m) = 3k + p - 1$$
-Now let $D_f$ be the discriminant of $f$. Using our formula for the $\alpha_i \alpha_j$, we can calculate a square root of $D_f$ as
+Now let $D_f$ be the discriminant of $f$.
+Using our formula for the $\alpha_i \alpha_j$, we can calculate a square root of $D_f$ as
 \begin{align*}
 	\sqrt{D_f} &= (\alpha_1 - \alpha_2)(\alpha_1 - \alpha_3)(\alpha_2 - \alpha_3)\\
 	&= \alpha_2\alpha_3(\alpha_2-\alpha_3) + \alpha_3\alpha_1(\alpha_3-\alpha_1) + \alpha_1\alpha_2(\alpha_1-\alpha_2)\\
@@ -198,11 +239,13 @@ Then
 \end{align*}
 Which gives $g(t)$ as
 $$g(t) = t^3 - 3pt - (3k-2)p$$
-Let $A = 2k - 2$. Then we can, for the last time, update our expression for $M_p$:
+Let $A = 2k - 2$.
+Then we can, for the last time, update our expression for $M_p$:
 $$M_p = 3k + p - 1 = p + 1 + A$$
 This is indeed the $A$ referred to in the initial statement of the theorem; we now show that it has all the stated properties.
 
-Let $D_g$ be the discriminant of $g(t)$. Then by simply plugging the coefficients of $g$ into the formula for the discriminant of a cubic, we have
+Let $D_g$ be the discriminant of $g(t)$.
+Then by simply plugging the coefficients of $g$ into the formula for the discriminant of a cubic, we have
 $$D_g = -4(-3p)^3 - 27(Ap)^2 = 4 \cdot 27p^3 - 27A^2p^2$$
 Now, for distinct $i,j \in \{1,2,3\}$, notice that $\beta_i - \beta_j = 3(\alpha_i - \alpha_j)$, and therefore
 $$D_g = 27^2 D_f$$
@@ -213,18 +256,23 @@ $$4p = A^2 + 27B^2$$
 with
 $$B = b-c\quad \text{and}\quad A = 3k-2$$
 We now just need to verify that $A$ is uniquely determined by the two conditions $4p = A^2 + 27B^2$ and $A \equiv 1 \mod 3$.
-For uniqueness, suppose $4p = \galt{A}^2 + 27\galt{B}^2$ is another representation. Then
+For uniqueness, suppose $4p = \galt{A}^2 + 27\galt{B}^2$ is another representation.
+Then
 \begin{align*}
 	4p(B_\ast^2 - B^2) &= (A^2 + 27B^2)\galt{B}^2 - (\galt{A}^2 + 27\galt{B}^2)B^2\\
 	&= (A\galt{B} + \galt{A}B)(A\galt{B} - \galt{A}B)
 \end{align*}
-Since $p$ divides the LHS, it must divide one of the factors on the RHS, say $p|(A\galt{B} - \galt{A}B)$. Now multiply the two representations of $4p$ together to get
+Since $p$ divides the LHS, it must divide one of the factors on the RHS, say $p|(A\galt{B} - \galt{A}B)$.
+Now multiply the two representations of $4p$ together to get
 $$16p^2 = A^2\galt{A}^2 + 27B^2\galt{A}^2 + 27\galt{B}^2A^2 + 27B^2\galt{B}^2$$
 so that
 $$16p^2 - (A\galt{A} + 27B\galt{B})^2 = 27(A\galt{B} - \galt{A}B)^2$$
 Since $p$ divides $AB - AB$, we see that
 $$16 - \left(\frac{A\galt{A} + 27B\galt{B}}{p}\right)^2 = 27\left(\frac{A\galt{B}-\galt{A}B}{p}\right)^2$$
-Seeing as the LHS is no greater than 16 and the RHS is $27$ times the square of an integer, we see that both sides actually equal zero. This implies that $A\galt{B} - \galt{A}B = 0$, so if we let
+Seeing as the LHS is no greater than 16 and the RHS is $27$ times the square of an integer, we see that both sides actually equal zero.
+This implies that $A\galt{B} - \galt{A}B = 0$, so if we let
 $$\lambda = \frac{\galt{A}}{A} = \frac{\galt{B}}{B}$$
-Substituting into $A^2 + 27B^2 = 4p = \galt{A}^2 + 27\galt{B}^2$ gives $\lambda^2 = 1$, so $\lambda = \pm 1$. The assumption that $A = \galt{A} = 1 \mod 3$ means that $\lambda = 1$, proving the uniqueness of $A$ and completing the proof.
+Substituting into $A^2 + 27B^2 = 4p = \galt{A}^2 + 27\galt{B}^2$ gives $\lambda^2 = 1$, so $\lambda = \pm 1$.
+The assumption that $A = \galt{A} = 1 \mod 3$ means that $\lambda = 1$, proving the uniqueness of $A$ and completing the proof.
 \end{proof}
+% EXAMPLE
