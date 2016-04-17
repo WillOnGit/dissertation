@@ -1,14 +1,14 @@
-% This file will give the statement & example of the Hasse-Weil bound by verifying it on x^3 + x + 1 = 0 over f_7
-% Is it necessary to go through the method of finding the points??
-% When counting points, presumably it is necessary to include the point at infinity?
+% This file will give the statement & example of the Hasse-Weil bound by verifying it on x^3 + x + 1 = y^2 over f_7
 % Add in intuitive proof and refer
 
 \begin{theorem}
 For an elliptic curve $C$ over a finite field $\fp$, the number of points on $C = \#C(\fp) = p + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{p}$
 \end{theorem}
+	This is the statement of Hasse's original result, as it pertains to elliptic curves.
+	The generalisation comes from introducing the genus $g$ and allowing $C$ to be any curve, so that the theorem reads
 \begin{sproof}
-	First, a remark; the statement above is actually a more specific statement of the theorem, which is more general. However, the most general definition requires defining the genus of an algebraic variety, which would be an inappropriate amount of detail for this manuscript, and so we stick to this more specific definition.
-	In a similar fashion, the proof of this theorem is also very technical, and so will be omitted. Those interested can consult...
+	The proof of this theorem is very technical, and so will be omitted.
+	Those interested can consult...
 \end{sproof}
 We can test the Hasse-Weil estimate by calculating the number of points on an elliptic curve $C$ over a particular finite field $\fp$. For ease of calculation, we will take $\fp = \fp[7]$ and let $C : y^2 = x^3 + x + 1$. First, we write out the squares in $\fp[7]$:
 \begin{align*}
