@@ -34,8 +34,122 @@ Now we are ready to introduce Lenstra's algorithm:
 		\item Continue until one of the additions fails
 	\end{itemize}
 \end{definition}
-Whilst this may seem strange, considering everything we have discussed so far, it makes sense.
-What we are doing is taking an integer $N$ that we know is composite and attempting to use it as the modulus in a finite field $\fp[N]$.
-But because it is composite, we know that $\fp[N]$ will not be a proper field, as some elements will not have multiplicative inverses.
-If we attempt to calculate the inverses of these elements with the euclidean algorithm, we will be unable to, as they will not be coprime with $N$.
-But this very calculation will give us a non-trivial divisor of $N$, so it will not matter that we cannot calculate the inverses.
+% Whilst this may seem strange, considering everything we have discussed so far, it makes sense.
+% What we are doing is taking an integer $N$ that we know is composite and attempting to use it as the modulus in a finite field $\fp[N]$.
+% But because it is composite, we know that $\fp[N]$ will not be a proper field, as some elements will not have multiplicative inverses.
+% If we attempt to calculate the inverses of these elements with the euclidean algorithm, we will be unable to, as they will not be coprime with $N$.
+% But this very calculation will give us a non-trivial divisor of $N$, so it will not matter that we cannot calculate the inverses.
+
+Here's an example.
+Say we want to factor $N = 2638661449034729$.
+We can check that $N$ is composite with fermat's little theorem, as mentioned earlier.
+Using the modular exponentiation algorithm, we calculate $2^{N-1} \mod N = 1386068300154542$, which proves that $N$ is composite.
+Now we choose our point $P = (2,1)$ and let $b = 1$.
+Taking $k=10!$, we attempt to calculate $kP$.
+We do this by taking a similar approach to the modular exponentiation algorithm, in that instead of calculating the $k$-fold sum $\underbrace{P+P+\ldots+P}_{k\text{ summands}}$, we calculate the binary expansion of $k$ and write
+$$kP = $$
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{r|l}
+		$k$ & $2^k P$\\
+		\hline
+		1 & $(2, 1)$\\
+		2 & $(1978996086776085, 1649163405646469)$\\
+		3 & $(1354531004190202, 712566094192611)$\\
+		4 & $(3034566536053, 2449122987212961)$\\
+		5 & $(1301371522167812, 173584894036069)$\\
+		6 & $(1996689877431974, 1560461237243599)$\\
+		7 & $(1690032118719931, 1115183255675848)$\\
+		8 & $(1106989140269887, 1249337210022185)$\\
+		9 & $(2006000898376031, 739903289262451)$\\
+		10 & $(360409978329708, 680989406049585)$\\
+		11 & $(1498346384082037, 1311595726437562)$\\
+		12 & $(317917266115269, 1139730538479759)$\\
+		13 & $(1176599249124147, 834137694636709)$\\
+		14 & $(229831052738857, 33111605954288)$\\
+		15 & $(514283736870450, 404971411450613)$\\
+		16 & $(1619865029688614, 1758310567012823)$\\
+		17 & $(2493326453658282, 878913854327751)$\\
+		18 & $(2243262160137209, 1701640423934925)$\\
+		19 & $(2323526509553459, 1123682327919074)$\\
+		20 & $(777963473649634, 1615413237260867)$\\
+		21 & $(1420808458933872, 2034011761100882)$\\
+		22 & $(2061892737190217, 240178323260750)$
+	\end{tabular}
+	\label{unsuccessfuldouble}
+	\caption{Generating the list of points via doubling when $b=1$}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c}
+		$(2006000898376031, 739903289262451)$\\
+		$(1435983113175084, 866053276340207)$\\
+		$(1372522607116506, 2279199412810534)$\\
+		$(2522377969419304, 1963228719476736)$\\
+		$(1867636445080926, 1800997235517595)$\\
+		$(396572835101474, 143329732066401)$\\
+		$(376321152472975, 2055982586016208)$\\
+		$(1086449006160587, 1492583392899450)$\\
+		$(804870318814085, 1030995341073004)$\\
+		$(1245577332479910, 2193527909976663)$\\
+		$(458028559825619, 2277727531737619)$\\
+		$kP = (458028559825619,2277727531737619)$
+	\end{tabular}
+	\label{unsuccessfuladd}
+	\caption{Adding the doubled points to get $kP$ when $b=1$}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{r|l}
+		$k$ & $2^k P$\\
+		\hline
+		1 & $(2, 1)$\\
+		2 & $(1978996223654343, 2307227360301809)$\\
+		3 & $(2065341991305728, 2602387696447713)$\\
+		4 & $(706090194730739, 364131284052804)$\\
+		5 & $(977388443992499, 2229627649103617)$\\
+		6 & $(1935153559561631, 2093139597695517)$\\
+		7 & $(175553192385993, 2422801076771166)$\\
+		8 & $(900832477635742, 1826551381265349)$\\
+		9 & $(514795954556322, 1072900592237302)$\\
+		10 & $(2067644682928109, 2124286622646949)$\\
+		11 & $(2301960260745936, 2560653520820230)$\\
+		12 & $(2512378902623323, 2537364249709183)$\\
+		13 & $(2441105821836409, 1109262897760599)$\\
+		14 & $(1236261064186840, 2217234011447721)$\\
+		15 & $(384156417337880, 1320270218117776)$\\
+		16 & $(1306192093717332, 688349719246224)$\\
+		17 & $(2062019132081890, 832733545528307)$\\
+		18 & $(1656673193668733, 916976917613322)$\\
+		19 & $(17008362074755, 1666632592566998)$\\
+		20 & $(1506916095423602, 1182578326715926)$\\
+		21 & $(850331238187406, 2319495258218643)$\\
+		22 & $(1747536919598074, 1619293033009998)$
+	\end{tabular}
+	\label{successfuldouble}
+	\caption{Generating the list of points via doubling when $b=23387$}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c}
+		$(514795954556322, 1072900592237302)$\\
+		$(1594423138470272, 757463091827773)$\\
+		$(2479979706264660, 2333023450224930)$\\
+		$(2288850814199939, 1125653152307693)$\\
+		$(406974087705183, 2180109173615353)$\\
+		$(2517955941215941, 2377002053335673)$\\
+		$(871996642729558, 279643526813096)$\\
+		$(540192081160502, 2103753450326003)$\\
+		$(1950391654929818, 1926026636369457)$\\
+		$(914230967480337, 1578752046703807)$\\
+		$(914230967480337, 1578752046703807)$\\
+		$(1747536919598074, 1619293033009998)$
+	\end{tabular}
+	\label{successfuladd}
+	\caption{Attempting to add the doubled points to get $kP$ when $b=23387$}
+\end{table}
+% Found 33750191 as a factor on curve with b = 23387
