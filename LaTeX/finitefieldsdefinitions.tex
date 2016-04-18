@@ -1,4 +1,3 @@
-% Going to include linear congruences in this section too
 \begin{definition}
 	A field is a commutative, unital ring in which every non-zero element is invertible.
 \end{definition}
@@ -7,9 +6,7 @@ For a given $n$, we have already seen that we can make $\zn$ a ring by defining 
 From now on, when referring to elements of $\zn$ or $\fp$, we will omit the caret that denotes that the elements are actually equivalence classes, and just write them as numerals.
 This is only to ease notation, and the elements of these groups/fields are still equivalence classes.
 
-However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted
-by writing $\zn = \fp$ to emphasise both that the modulus is prime and
-that the ring is a field.  
+However, the ring $\zn$ is a field if and only if $n$ is prime, and this is denoted by writing $\zn = \fp$ to emphasise both that the modulus is prime and that the ring is a field.
 
 The reason this is true is obvious when considering inverses; if we attempt to make a field out of $\zn[4]$, we find that $2$ has no inverse, since
 \begin{align*}
@@ -18,16 +15,27 @@ The reason this is true is obvious when considering inverses; if we attempt to m
 	2 \times 2 &= 0\\
 	2 \times 3 &= 2.
 \end{align*}
-Therefore, $\zn[4]$ fails to meet the criteria for a field.
+Therefore, $\zn[4]$ fails to meet the criteria for a field, since $2\neq 0$ has no inverse.
 
-% Paragraph on more complicated finite fields
-It should be noted, though, that it is indeed possible to construct a field with four elements.
-This is done by quotienting out $\fp[2]$ \ldots % TBC
+% Paragraph on more complicated finite fields - should maybe do a more interesting field?
+It should be noted, though, that it is possible to construct a field with four elements.
+More generally, it is possible to construct finite fields $\fp[p^e]$ of order $p^e$, with $p$ prime and $e \in \N$.
+This is done by taking a quotient of the ring $\fp[p] [X]$ (the ring of polynomials in the indeterminate $X$ with coefficients in $\fp$) by an irreducible polynomial $F$ of degree $e$.
+
+In the case of $\fp[4]$, this can be done by quotienting $\fp[2] [X]$ with the (only) irreducible polynomial of degree 2 over $\fp[2]$ $F = X^2+X+1$, i.e., by letting
+$$\fp[4] = \fp[2] [X] / (X^2 + X + 1).$$
+Let $\alpha$ be a root of $F$.
+Then $\alpha^2 + \alpha + 1 = 0$, and we see that $\alpha(\alpha +1) = 1$.
+Thus, we have that $\fp[4] = \{0, 1, \alpha, \alpha + 1\}$.
+
+For simplicity's sake, from now on, when we refer to finite fields, we limit ourselves to ``simple'' finite fields of the form $\zn[p]$, and generally refer to these as $\fp$.
 
 The question of finding inverses in $\zn$ has a well understood, general solution, which involves the euclidean algorithm.
 \begin{definition}
 	The euclidean algorithm takes two numbers $a,b \in \N$ and returns their \emph{greatest common divisor (gcd)} by repeated division with remainder.
 \end{definition}
+We do not define the euclidean algorithm rigorously, as it has already been introduced in \cite{111-lectures}.
+We provide an example of its usage as a refresher, though.
 The algorithm looks as follows when applied to 21 and 15:
 \begin{align*}
 	\gcd(21,15):21 &= 1\times15 + 6\\
@@ -42,26 +50,53 @@ Using the steps of the algorithm, it is possible to calculate
 	&= 15 - 2\times21 + 2\times15\\
 	&=3\times15 - 2\times21
 \end{align*}
-So $3 = 3\times15 - 2\times21$. This relates to inverses in a finite field in the following way.
+So $3 = 3\times15 - 2\times21$.
+This relates to inverses in a finite field in the following way.
 \begin{definition}
-	Let $a,b \in \Z$ and $n \in \N$. A linear congruence is an equation of the form
+	Let $a,b \in \Z$ and $n \in \N$.
+	A linear congruence is a congruence of the form
 	$$ax \equiv b \mod n$$
 \end{definition}
-Recall this basic definition from \texttt{MATH111}. The solutions of such equations are well understood, as given by this straightforward proposition.
+Recall this basic definition from \texttt{MATH111}.
+The solutions of such congruences are well understood, as given by this straightforward proposition.
 \begin{proposition}
-	The equation $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.\label{congruencesolutions}
+	The congruence $ax \equiv b \mod n$ has solutions if and only if $\gcd(a,n)|b$.\label{congruencesolutions}
 \end{proposition}
 \begin{proof}
-	Let $d = \gcd(a,n)$. To prove $\Rightarrow$, suppose that the congruence has solutions. Let $x \in \Z$ be a solution, such that we can write $ax = qn + b$ for some $q \in \Z$, and therefore $b = ax - qn$. Since $d|a$ and $d|n$, clearly $d|b$.
+	Let $d = \gcd(a,n)$.
+	To prove $\Rightarrow$, suppose that the congruence has solutions.
+	Let $x \in \Z$ be a solution, such that we can write $ax = qn + b$ for some $q \in \Z$, and therefore $b = ax - qn$.
+	Since $d|a$ and $d|n$, clearly $d|b$.
 
-	For  $\Leftarrow$, supposing that $d|b$, or $b=td$ for some $t \in \Z$. We can write $d = ra + sn$ for some $r,s \in \Z$, and therefore
+	For  $\Leftarrow$, supposing that $d|b$, or $b=td$ for some $t \in \Z$.
+	We can write $d = ra + sn$ for some $r,s \in \Z$, and therefore
 	$$b = td = t(ra + sn) = a(tr) + (ts)n \equiv a(tr) \mod n$$
 	and the congruence has $x = tr$ as a solution.
 \end{proof}
-This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of a nonzero element $x$, we need to solve
+This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of a nonzero element $a$, we need to solve
 $$ax \equiv 1 \mod n,$$
-where \Cref{congruencesolutions} clearly implies that $a$ and $n$ must be coprime for an inverse to exist. Therefore all elements $\{1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field. Clearly, this happens if and only if $n$ is prime.
+where \Cref{congruencesolutions} clearly implies that $a$ and $n$ must be coprime for an inverse to exist.
+Therefore all elements $\{1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field.
+Clearly, this happens if and only if $n$ is prime.
 
-% This tells us not only why $n$ must be prime for $\zn$ to be a field, but also what happens when it is composite: namely, all elements which are coprime to $n$ will still have an inverse.
-% Thus, $\zn$ will ``sort of work'' as a field.
-% This idea will be revisited later.
+\Cref{congruencesolutions} also tells us how to solve such congruences; by reversing the euclidean algorithm and letting $x \equiv r \mod n$ (note that $t$ is dropped from the general solution since $b = 1$). % full stop inside or outside brackets?
+When finding inverses in a finite field, since $a$ and the modulus $p$ are coprime, it boils down to the following.
+
+To find the inverse of $52$ in $\fp[83]$, we apply the euclidean algorithm to $52$ and $83$:
+\begin{align*}
+	\gcd(83,52): 83 &= 1 \times 52 + 31\\
+	52 &= 1 \times 31 + 21\\
+	31 &= 1 \times 21 + 10\\
+	21 &= 2 \times 10 + 1
+\end{align*}
+then write $1$ as a linear combination of $52$ and $83$:
+\begin{align*}
+	\gcd(83,52) = 1 &= 1 \times 52 - 2 \times 10 \\
+	&= 3 \times 21 - 2 \times 31 \\
+	&= 3 \times 52 - 5 \times 31 \\
+	&= 8 \times 52 - 5 \times 83 
+\end{align*}
+and we have that the coefficient of $52$ in the expression is $8$. Therefore,
+$$52^{-1} \equiv 8 \mod 83.$$
+In this case, clearly $8 \in \fp[83]$, but on occasion, the fact that the solution is a congruence is important.
+A python implementation of the euclidean algorithm, together with the inverse-finding capacity, is included in \Cref{codeappendix}.
