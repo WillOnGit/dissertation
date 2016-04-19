@@ -75,7 +75,7 @@ The solutions of such congruences are well understood, as given by this straight
 \end{proof}
 This sheds light on why $\zn$ is a field when $n$ is prime: in $\zn$, to find the inverse of a nonzero element $a$, we need to solve
 $$ax \equiv 1 \mod n,$$
-where \Cref{congruencesolutions} clearly implies that $a$ and $n$ must be coprime for an inverse to exist.
+where \cref{congruencesolutions} clearly implies that $a$ and $n$ must be coprime for an inverse to exist.
 Therefore all elements $\{1,\ldots,n-1\}$ must be coprime with $n$ for $\zn$ to be a field.
 Clearly, this happens if and only if $n$ is prime.
 
@@ -99,4 +99,4 @@ then write $1$ as a linear combination of $52$ and $83$:
 and we have that the coefficient of $52$ in the expression is $8$. Therefore,
 $$52^{-1} \equiv 8 \mod 83.$$
 In this case, clearly $8 \in \fp[83]$, but on occasion, the fact that the solution is a congruence is important.
-A python implementation of the euclidean algorithm, together with the inverse-finding capacity, is included in \Cref{codeappendix}.
+A python implementation of the euclidean algorithm, together with the inverse-finding capacity, is included in \cref{codeappendix}.
