@@ -44,14 +44,14 @@
 }
  
 % Definition environment
-\newenvironment{definition}
- {
-   \begin{trivlist}
-     \item[] {\bf Definition.}
- }
- {
-   \end{trivlist}
- }
+% \newenvironment{definition}
+ % {
+   % \begin{trivlist}
+     % \item[] {\bf Definition.}
+ % }
+ % {
+   % \end{trivlist}
+ % }
  
 % Theorem environment (this is a bit different because there is a \newtheorem command)
 % Syntax \newtheorem{ <<name>> }{ <<Displayed Title>> }[ <<Where to take numbering from>> ]
@@ -59,6 +59,7 @@
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
 
 % Custom commands
 \newcommand{\ud}{\, {\rm d} \kern-.015em }
