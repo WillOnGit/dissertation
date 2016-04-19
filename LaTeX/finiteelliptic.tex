@@ -1,7 +1,7 @@
 \subsubsection{The Reduction mod $p$ Map}
 Now that the groundwork for elliptic curves has been laid, we are ready to address the main subject matter, that of elliptic curves over finite fields.
 As stressed before, we restrict our attention to finite fields of the form $\zn[p]$, the integers modulo a prime $p$.
-We will also take all of our curves to be in Weierstrass form from here out.
+We will also take all of our curves to be in Weierstrass form from here out, and only look at the affine parts of the curves.
 %
 % FF<-0:28
 % 
@@ -34,3 +34,7 @@ The visible part of the curve is therefore represented by a collection of points
 For elliptic curves over a finite field $\mathbb{F}_p$, when adding points $(x_1,y_1) + (x_2,y_2) = (x',y')$,
 $$x'=\lambda^2 - a - x_1 - x_2,\quad y' = \lambda x_1 -\lambda x' - y_1 $$
 where $\lambda = \frac{y_2-y_1}{x_2-x_1}$ if $x_1\neq x_2$ or $\lambda=\frac{3x_1^2 + 2ax_1 + b}{2y_1}$ otherwise.
+These formulae are only valid when neither $(x_1,y_1)$ nor $(x_2,y_2) = \pai$, since $\pai$ has no coordinates in $\fp \times \fp$.
+
+It is important to remember that we are now dealing with arithmetic in $\fp$, and so the division referenced is actually multiplication by the inverse element in $\fp$, which can be found with the euclidean algorithm as before.
+Another consequence is that all calculations are performed $\mod p$.

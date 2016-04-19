@@ -2,15 +2,26 @@
 % Add in intuitive proof and refer
 
 \begin{theorem}
-For an elliptic curve $C$ over a finite field $\fp$, the number of points on $C = \#C(\fp) = p + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{p}$
+	For an elliptic curve $C: y^2 = f(x)$ over a finite field $\fp$, the number of points on $C = |C(\fp)| = p + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{p}$.
 \end{theorem}
-	This is the statement of Hasse's original result, as it pertains to elliptic curves.
-	The generalisation comes from introducing the genus $g$ and allowing $C$ to be any curve, so that the theorem reads
+This is the statement of Hasse's original result, as it pertains to elliptic curves.
+The generalisation comes from introducing the genus $g$ and allowing $C$ to be any curve, so that the theorem reads $|C(\fp)| = p + 1 + \epsilon$, where $|\epsilon| \leq 2g\sqrt{p}$.
+Since elliptic curves have genus 1, we get Hasse's result from the extended theorem, known as the Hasse-Weil theorem.
 \begin{sproof}
 	The proof of this theorem is very technical, and so will be omitted.
-	Those interested can consult...
+	Those interested can consult \cite{hasse1936a,hasse1936b,hasse1936c}.
+	We give an intuitive, non-rigorous sketch of proof though, and prove a theorem of Gauss from \cite{tate2013} as a supplement.
+
+	Since there are $p$ possibilites for $x$ in $\fp$, if $f(x)$ is a square in $\fp$ for a particular $x$, then this will yield two points on the curve $C$.
+	Otherwise, it will yield no points.
+	Intuitively, one would not expect there to be a tendency for $f(x)$ to be a square or not to be a square, and so we assume that each $x$ in $\fp$ has a $50\%$ chance of yielding no points and a $50\%$ chance of yielding two points.
+	Therefore, one would expect there to be $p$ points from $x \in \fp$ and one more from the point at infinity $\pai$.
+	Allowing for a small error term $\epsilon$, we arrive at
+	$$|C(\fp)| = p + 1 + \epsilon.$$
 \end{sproof}
-We can test the Hasse-Weil estimate by calculating the number of points on an elliptic curve $C$ over a particular finite field $\fp$. For ease of calculation, we will take $\fp = \fp[7]$ and let $C : y^2 = x^3 + x + 1$. First, we write out the squares in $\fp[7]$:
+We can test the Hasse-Weil estimate by calculating the number of points on an elliptic curve $C$ over a particular finite field $\fp$.
+For ease of calculation, we will take $\fp = \fp[7]$ and let $C : y^2 = x^3 + x + 1$.
+First, we write out the squares in $\fp[7]$:
 \begin{align*}
 0^2 = 0\\
 1^2 = 1\\
@@ -37,5 +48,5 @@ Which leads us to the four points
 (2,2)\\
 (2,5)
 \end{align*}
-Including the point at infinity $\pai$, the Hasse-Weil theorem gives $\#C(\fp[7]) = 7 + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{7}$, which bounds the number of points on $C$ as $8\pm5$, or $\#C(\fp[7]) \in \{3,4,\ldots,13\}$. Clearly, 5 % or 4 if you don't count big O?
-agrees with this estimate.
+Including the point at infinity $\pai$, the Hasse-Weil theorem gives $\#C(\fp[7]) = 7 + 1 + \epsilon$, where $|\epsilon| \leq 2\sqrt{7}$, which bounds the number of points on $C$ as $8\pm5$, or $\#C(\fp[7]) \in \{3,4,\ldots,13\}$.
+Clearly, 5 agrees with this estimate.

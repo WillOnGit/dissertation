@@ -14,7 +14,7 @@ We call affine 2-space, or $\an[2]$, the \emph{affine plane}.
 In affine $n$-space, it is possible to define \emph{affine curves} in the following way.
 \begin{definition}
 	In $\an$, for a given polynomial $f$ in $n$ variables $x_1,\ldots,x_n$, an \emph{affine curve} is the set $V(f)$ of all points $(x_1,\ldots,x_n)$ such that $f(x_1,\ldots,x_n)=0$. More concisely,
-	$$V(f) = \{(x_1,\ldots,x_n) | f(x_1,\ldots,x_n)=0$$
+	$$V(f) = \{(x_1,\ldots,x_n) | f(x_1,\ldots,x_n)=0\}$$
 \end{definition}
 \Cref{affinecurveexample} shows an example of an affine curve.
 
@@ -36,7 +36,7 @@ In affine $n$-space, it is possible to define \emph{affine curves} in the follow
 \end{figure}
 
 It is important to distinguish the two objects $V(f)$ and $f$, as $f$ is simply a polynomial, whereas $V(f)$ is the set of points that are a solution to a polynomial \emph{equation} $f(x_1,\ldots,x_n)=0$.
-However, for convenience, we write the curve $V(f)$ as its defining polynomial equation $f(x,y)=0$, when it is clear to do so.
+However, for convenience, we write the curve $V(f)$ as its defining polynomial equation $f(x_1,\ldots,x_n)=0$, when it is clear to do so.
 The distinction of objects remains, though, and this is purely notational.
 
 More points on notation are that in the affine plane, instead of $x_1$ and $x_2$, we write $x$ and $y$, lowercase.
@@ -49,7 +49,6 @@ The projective plane is an idea that grew out of the renaissance study of perspe
 For example, when stood between two railway lines, they appear to meet at the horizon.
 \Cref{projective-parallel} is a diagram of the situation.
 While this is merely a trick of perspective in euclidean space, in the projective plane, parallel lines \emph{do} meet, at a so called `point at infinity'.
-% euclidean/affine? What?
 The idea is to add these points at infinity to the affine plane so that each line contains exactly one.
 On top of this is the one exception, the `line at infinity', which is defined to be the unique line that is simply the collection of all points at infinity.
 These ideas, while formative, are not rigorous, and we present the proper definition and constructions (there are two) of projective space below.
@@ -95,7 +94,7 @@ the set of equivalence classes of $\sim$.
 
 Therefore, we see that points in $\pn$ are equivalence classes of lines in $\an[n+1] \setminus \{0\}$.
 For points in $\pn$, write $P = [p_0,p_1,\ldots,p_n]$, where the square brackets represent the \emph{homogeneous coordinates} of the point.
-We see that $[p_0,p_1,\ldots,p_n] = \{(\lambda a_0, \lambda a_1,\ldots,\lambda a_n | \lambda \in \C\}$.
+We see that $[p_0,p_1,\ldots,p_n] = \{(\lambda p_0, \lambda p_1,\ldots,\lambda p_n) | \lambda \in \C\}$.
 
 By the nature of this construction, it is clear that scaling homogeneous coordinates results in coordinates of the same point.
 Therefore, for a given point, there is no unique representation in homogeneous coordinates, and we may scale coordinates for our convenience.
@@ -116,7 +115,7 @@ Notice that the image of $\beta_n$ will always give valid homogeneous coordinate
 Now that projective space has been introduced, it is natural to wonder what form curves in projective space take.
 If we try to define projective curves in $\pn$ in the same way as affine curves, i.e. as solutions of a polynomial equation $f(x_1,\ldots,x_n)=0$ in $n$ variables, we find that it is not always possible, since we saw that the homogeneous coordinates of a point are not unique.
 For example, if we tried to define a projective curve as $F(X,Y,Z)=X^2+Y+Z=0$, we see that $[2,-2,-2]$ is a solution of this equation, and so $[2,-2,-2] \in F$.
-However, since we work with homogeneous coordinates, the point $[2,-2,-2]$ is also be written as $[-2,2,2]$, which clearly does not satisfy $F(X,Y,Z)=0$.
+However, since we work with homogeneous coordinates, the point $[2,-2,-2]$ can also be written as $[-2,2,2]$, which clearly does not satisfy $F(X,Y,Z)=0$.
 This is a problem, as we do not want the representation of a point to affect whether it lies on a curve or not.
 
 To that extent, when working with the projective plane, it is convenient to define a homogeneous polynomial as a polynomial which satisfies
@@ -128,7 +127,7 @@ It is easy enough to see that a polynomial is homogeneous if and only if the deg
 So the polynomial $\frac{1}{2}x^4 + x^2y^2 + 14xy^3$ is homogeneous with degree 4, whereas the polynomial $17x^5 + 12x^2y + 2$ is not, as the monomials have degrees 5, 3 and 0, from left-to-right.
 
 It is possible to homogenise a given polynomial $f(x_1,\ldots,x_n)$ by letting
-$$F = F(X_1,X_2,\ldots,X_{n+1}) = (X_{n+1})^d f(\frac{X_1}{X_{n+1}},\ldots,\frac{X_n}{X_{n+1}}),$$
+$$F = F(X_1,X_2,\ldots,X_n,X_{n+1}) = (X_{n+1})^d f(\frac{X_1}{X_{n+1}},\ldots,\frac{X_n}{X_{n+1}}),$$
 where $d$ is the maximum degree of all monomials of $F$.
 In practice, this resembles `topping up' the monomials with an extra variable as necessary.
 So the inhomogeneous polynomial $17x^5 + 12x^2y + 2$ discussed earlier can be homogenised as $17X^5 + 12X^2YZ^2 + 2Z^5$.
@@ -138,9 +137,10 @@ There are a few things to notice here.
 First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
 We also use $X$, $Y$ and $Z$ (and also $x$ and $y$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
 
-To summarise, it is possible to move to and from the projective plane with regards to both points and polynomials.
-A point $(x,y)$ can be mapped to $[x,y,1]$, and from $[X,Y,Z]$ to $(X/Z,Y/Z)$.
-A polynomial $f(x,y)$ can be mapped to $F(X,Y,Z) = Z^d f(x/Z,y/Z)$, and back by mapping $F(X,Y,Z)$ to $f(x,y) = F(x,y,1)$.
+To summarise, it is possible to move to (homogenisation) and from (dehomogenisation) the projective plane with regards to both points and polynomials.
+A point $(x,y)\in\an[2]$ can be homogenised as $[x,y,1]\in\pn[2]$, and $[X,Y,Z]$ dehomogenised as $(X/Z,Y/Z)$.
+A polynomial $f(x,y)$ can be homogenised as $F(X,Y,Z) = Z^d f(x/Z,y/Z)$, and $F(X,Y,Z)$ dehomogenised as $f(x,y) = F(x,y,1)$.
+In this way, it is possible to `see' the affine part of projective curves $F$ by dehomogenising $F$ and looking at the resultant affine curve $f$.
 
 \begin{figure}[htbp]
 	\centering
@@ -163,18 +163,20 @@ A polynomial $f(x,y)$ can be mapped to $F(X,Y,Z) = Z^d f(x/Z,y/Z)$, and back by 
 	\caption{The intersection of $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$}
 	\label{euclidean-intersection}
 \end{figure}
-The lines given by $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$, which are parallel in $\R^2$, intersect in the projective plane at the point [3,-2,0].
-This is because, when homogenised with respect to $z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y + 4Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,-2,0]$.
+The reverse is also true, as the parallel lines given by $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$ in $\an[2]$, intersect in the projective plane at the point [3,-2,0].
+This is because, when homogenised with respect to $Z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y + 4Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,2,0]$.
+As we would expect, this is a point at infinity, since $Z=0$.
 \subsubsection{Projective Curves}
-Now that the basics of projective geometry have been established, we introduce a few more ideas necessary for understanding the main subject matter.
+Now that the concepts of homogenisation and dehomogenisation have been established, we introduce a few more ideas necessary for understanding the main subject matter.
 From now on, we also limit ourselves to the projective plane $\pn[2]$.
 
 \begin{definition}
 	A projective curve is the set of points defined by a \emph{homogeneous} polynomial equation $F(X_1,X_2,\ldots,X_n) = 0$.
 	When discussing the projective plane $\pn[2]$, we write $F(X,Y,Z) = 0$.
+	The degree of a curve is the degree of the polynomial in the defining equation.
 \end{definition}
-The degree of a curve is the degree of the polynomial in the defining equation.
 For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ and $Z^2 + \frac{1}{2}Y^2 = 0$ all define projective curves in $\pn[2]$.
+% graphics of these curves?
 The first two have degree 3, the third, degree 2.
 
 \begin{definition}
@@ -225,4 +227,5 @@ As alluded to before, being able to find tangent lines plays an important part i
 	A \emph{flex} is a point $P$ on a curve $F$ where the tangent to $F$ at $P$ intersects $F$ with multiplicity at least 3.
 \end{definition}
 
-Flexes are important points
+Flexes are important points to consider in our upcoming chapters...
+% example of flex on a curve

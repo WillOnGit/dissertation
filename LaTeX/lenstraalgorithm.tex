@@ -1,4 +1,5 @@
 % Don't forget to talk about how you spent ages writing a ======= implementation of the alg!
+\subsubsection{The modular exponentiation algorithm}
 Before we introduce Lenstra's elliptic curve factorisation algorithm, a prerequisite algorithm, the modular exponentiation algorithm.
 This, along with the euclidean algorithm, is one of the two dependencies that Lenstra's algorithm requires.
 Therefore, a python implementation of it is also included in \cref{codeappendix}.
@@ -21,8 +22,10 @@ and then calculate $a^{500} = A_2 \times A_4 \times A_5 \times A_6 \times A_7 \t
 \end{definition}
 As the numbers involved grow larger, the time savings over the trivial method become enormous, as this is an $O(\log_2(k))$ algorithm, and it is this algorithm which we shall use in our arithmetic.
 
-%fermat's little theorem?
+\subsubsection{Fermat's Little Theorem}
+Fermat's little theorem here.
 
+\subsubsection{Lenstra's algorithm}
 Now we are ready to introduce Lenstra's algorithm:
 \begin{definition}
 	Lenstra's algorithm goes as follows to factor an integer $N$ which is known to be composite:
