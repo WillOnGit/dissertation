@@ -3,18 +3,21 @@ The main object of interest in this subsection is the projective plane.
 Before we introduce it, though, we begin with a prerequisite definition.
 
 \begin{definition}
-	Let $k$ be a field. Define affine $n$-space, or $\an$, to be the set of all $n$-tuples, or points,
-	$$\an = \{ (a_1,a_2,\ldots,a_n) | a_i \in k\}.$$
+	Let $k$ be a field.
+	Define affine $n$-space, or $\an(k)$, to be the set of all $n$-tuples, or points,
+	$$\an(k) = \{ (a_1,a_2,\ldots,a_n) | a_i \in k\}.$$
 \end{definition}
 
-The consideration of algebraically closed fields differentiates affine space from $\R^n$, where from now on, unless otherwise mentioned, we take the field $k = \C$.
-% note about how we don't need to use C necessarily?
+In this section, we take the underlying field $k$ to be $\C$, as in \cite{bix2006,323-lectures}, which differentiates affine space from $\R^n$ since $\C$ is algebraically closed, whereas $\R^n$ is not.
+This means that we can split all polynomials, which is useful when considering their roots.
+Also, from now on, if it is clear which field is being worked in, we write $\an$ for short instead of $\an(k)$.
 We call affine 2-space, or $\an[2]$, the \emph{affine plane}.
 
 In affine $n$-space, it is possible to define \emph{affine curves} in the following way.
 \begin{definition}
-	In $\an$, for a given polynomial $f$ in $n$ variables $x_1,\ldots,x_n$, an \emph{affine curve} is the set $V(f)$ of all points $(x_1,\ldots,x_n)$ such that $f(x_1,\ldots,x_n)=0$. More concisely,
-	$$V(f) = \{(x_1,\ldots,x_n) | f(x_1,\ldots,x_n)=0\}$$
+	In $\an(k)$, for a given polynomial $f \in k[x_1,\ldots,x_n]$, an \emph{affine curve} is the set $V(f)$ of all points $(x_1,\ldots,x_n) \in \an(k)$ such that $f(x_1,\ldots,x_n)=0$.
+	More concisely,
+	$$V(f) = \{(x_1,\ldots,x_n)\in\an(k) | f(x_1,\ldots,x_n)=0\}$$
 \end{definition}
 \Cref{affinecurveexample} shows an example of an affine curve.
 
@@ -34,7 +37,7 @@ More points on notation are that in the affine plane, instead of $x_1$ and $x_2$
 We also write polynomials as lowercase letters $f$, $g$ etc.
 The reason for this will be explained shortly.
 \subsubsection{Projective Space}
-Now that affine space has been introduced, we are ready to introduce projective $n$-space $\pn$, and with that, the projective plane $\pn[2]$.
+Now that affine space has been introduced, we are ready to introduce projective $n$-space $\pn(k)$, and with that, the projective plane $\pn[2](k)$.
 
 The projective plane is an idea that grew out of the renaissance study of perspective in art.
 For example, when stood between two railway lines, they appear to meet at the horizon.
@@ -68,64 +71,68 @@ These ideas, while formative, are not rigorous, and we present the proper defini
 	\label{projective-parallel}
 \end{figure}
 
-% \begin{definition}
-% 	The projective plane is an extension of the affine plane $\an[2]$ created by adding `points at infinity' such that every pair of lines intersects exactly once.
-% 	Points in projective $n$-space are represented by $n+1$-tuples modulo an equivalence relation, such that not all coordinates are zero.
-% \end{definition}
-
 The two constructions of projective space give two different interpretations of it, both of which are useful to consider.
 Projective $n$-space can be thought of as either affine $n$-space with points at infinity added (mentioned already) or as a quotient of affine $(n+1)$-space.
+For both of these constructions, $k$ is the underlying field of affine space $\an(k)$.
 
-\subsubsection{Construction 1: Quotient of $\an[n+1]$}
-Remove the origin (i.e. the point $(0,0,\ldots,0)$) from $\an[n+1]$ and define an equivalence relation $\sim$ on the remaining points as follows:
+\subsubsection{Construction 1: Quotient of $\an[n+1](k)$}
+Remove the origin (i.e. the point $(0,0,\ldots,0)$) from $\an[n+1](k)$ and define an equivalence relation $\sim$ on the remaining points as follows:
 $$(a_0,a_1,\ldots,a_n) \sim (b_0,b_1,\ldots,b_n) \iff (a_0,a_1,\ldots,a_n) = \lambda(b_0,b_1,\ldots,b_n)$$
-where $\lambda$ is a non-zero scalar in $\C$. Then we have 
-$$\pn = (\an[n+1]\setminus\{(0,\ldots,0)\})/\sim,$$
+where $\lambda$ is a non-zero scalar in $\C$.
+Then we have 
+$$\pn = (\an[n+1](k)\setminus\{(0,\ldots,0)\})/\sim,$$
 the set of equivalence classes of $\sim$.
 
-Therefore, we see that points in $\pn$ are equivalence classes of lines in $\an[n+1] \setminus \{0\}$.
+Therefore, we see that points in $\pn$ are equivalence classes of lines in $\an[n+1](k) \setminus \{0\}$.
 For points in $\pn$, write $P = [p_0,p_1,\ldots,p_n]$, where the square brackets represent the \emph{homogeneous coordinates} of the point.
-We see that $[p_0,p_1,\ldots,p_n] = \{(\lambda p_0, \lambda p_1,\ldots,\lambda p_n) | \lambda \in \C\}$.
+We see that $[p_0,p_1,\ldots,p_n] = \{(\lambda p_0, \lambda p_1,\ldots,\lambda p_n) | \lambda \in \C, \lambda\neq0\}$.
 
 By the nature of this construction, it is clear that scaling homogeneous coordinates results in coordinates of the same point.
 Therefore, for a given point, there is no unique representation in homogeneous coordinates, and we may scale coordinates for our convenience.
 
-\subsubsection{Construction 2: Extension of $\an[n]$}
+\subsubsection{Construction 2: Extension of $\an[n](k)$}
 Now we present the second construction of $\pn$, which can be thought of as adding points at infinity to affine $n$-space.
 This is done inductively on $n$ by defining maps $\alpha_n$ and $\beta_n$.
-To begin with, let $\pn[0] = \an[1] \setminus \{0\}$ and let
+To begin with, let $\pn[0] = \an[1](k) \setminus \{0\}$ and let
 \begin{alignat*}{2}
-&\alpha_n : \an \rightarrow \pn,\quad &&\alpha_n(x_1,\ldots,x_n) = [x_1,\ldots,x_n,1]\\
+	&\alpha_n : \an(k) \rightarrow \pn,\quad &&\alpha_n(x_1,\ldots,x_n) = [x_1,\ldots,x_n,1]\\
  &\beta_n : \pn[n-1] \rightarrow \pn,\quad &&\beta_n[X_1,\ldots,X_n] = [X_1,\ldots,X_n,0]
 \end{alignat*}
 Then we can define
-$$\pn = \alpha_n(\an) \cup \beta_n(\pn[n-1])$$
+$$\pn = \alpha_n(\an(k)) \cup \beta_n(\pn[n-1])$$
 Effectively, we have that $\alpha_n$ is the embedding of affine space in $\pn$ and $\beta_n$ represents the points at infinity of $\pn$.
 Notice that the image of $\beta_n$ will always give valid homogeneous coordinates, as we removed zero from $\pn[0]$, and therefore at least one of the first $n$ coordinates will be nonzero.
-\subsubsection{Homogenisation of Polynomials}
-Now that projective space has been introduced, it is natural to wonder what form curves in projective space take.
+\subsubsection{Homogenisation and Dehomogenisation}
+Now that projective space has been introduced, we establish how to transition between affine space $\an$ and projective space $\pn$.
+The second construction of projective space is the most enlightening in this regard.
+The map $\alpha_n$ gives the image of a point $p=(x_1,\ldots,x_n)\in\an$ in $\pn$ as $[x_1,\ldots,x_n,1]$, and this process is known as \emph{homogenisation}.
+From the first construction, which included the definition of homogeneous coordinates, we see that this can be scaled by any nonzero element of $k$, say $\lambda$, for example.
+Then if we have homogeneous coordinates $[\lambda x_1,\ldots,\lambda x_n,\lambda]$, we can recover $p$ by dividing through by $\lambda$ (which is safe, since $\lambda\neq0$) such that the final homogeneous coordinate is 1, where we can recover the coordinates of the point from the first $n$ coordinates.
+This transition from $\pn$ to $\an$ is known as \emph{dehomogenisation}, since it is the reverse transition to homogenisation.
+More efficiently, to dehomogenise a point $P = [X_1,\ldots,X_n,X_{n+1}] \in \pn$ where $X_{n+1}\neq0$, we let $p = (\frac{X_1}{X_{n+1}},\ldots,\frac{X_n}{X_{n+1}})\in \an$.
+Of course, the fact that we cannot dehomogenise points with final homogeneous coordinate 0 is to be expected, since these are the points at infinity, which do not exist in $\an$.
+
 If we try to define projective curves in $\pn$ in the same way as affine curves, i.e. as solutions of a polynomial equation $f(x_1,\ldots,x_n)=0$ in $n$ variables, we find that it is not always possible, since we saw that the homogeneous coordinates of a point are not unique.
 For example, if we tried to define a projective curve as $F(X,Y,Z)=X^2+Y+Z=0$, we see that $[2,-2,-2]$ is a solution of this equation, and so $[2,-2,-2] \in F$.
 However, since we work with homogeneous coordinates, the point $[2,-2,-2]$ can also be written as $[-2,2,2]$, which clearly does not satisfy $F(X,Y,Z)=0$.
 This is a problem, as we do not want the representation of a point to affect whether it lies on a curve or not.
 
 To that extent, when working with the projective plane, it is convenient to define a homogeneous polynomial as a polynomial which satisfies
-$$F(tX_1,tX_2,\ldots,tX_n)=t^k F(X_1,X_2,\ldots,X_n)$$
-for some $t \in \C$ and $k \in \N$. We see that these kinds of polynomials are able to define curves in the projective plane, as for a homogeneous polynomial $F$,
+$$F(tX_1,tX_2,\ldots,tX_n)=t^e F(X_1,X_2,\ldots,X_n)$$
+for some $t \in k$ and $e \in \N$.
+We see that these kinds of polynomials are able to define curves in the projective plane, as for a homogeneous polynomial $F$,
 $$F(X_1,X_2,\ldots,X_n)=0 \Leftrightarrow F(tX_1,tX_2,\ldots,tX_n) = t^k F(X_1,X_2,\ldots,X_n) = 0$$
 
 It is easy enough to see that a polynomial is homogeneous if and only if the degree of each monomial $= d$, for some $d \in \N$.
 So the polynomial $\frac{1}{2}x^4 + x^2y^2 + 14xy^3$ is homogeneous with degree 4, whereas the polynomial $17x^5 + 12x^2y + 2$ is not, as the monomials have degrees 5, 3 and 0, from left-to-right.
 
-It is possible to homogenise a given polynomial $f(x_1,\ldots,x_n)$ by letting
-$$F = F(X_1,X_2,\ldots,X_n,X_{n+1}) = (X_{n+1})^d f(\frac{X_1}{X_{n+1}},\ldots,\frac{X_n}{X_{n+1}}),$$
-where $d$ is the maximum degree of all monomials of $F$.
+It is possible to homogenise a given polynomial $f(x_1,\ldots,x_n)$ by introducing another variable $x_{n+1}$ and multiplying each monomial by $x_{n+1}$ until it has degree $d$, where $d$ is the maximum degree of all monomials of $F$.
 In practice, this resembles `topping up' the monomials with an extra variable as necessary.
 So the inhomogeneous polynomial $17x^5 + 12x^2y + 2$ discussed earlier can be homogenised as $17X^5 + 12X^2YZ^2 + 2Z^5$.
 The reverse transition can be made also, simply by letting $f = f(x_1,\ldots,x_n) = F(x_1,\ldots,x_n,1)$, which looks like simply taking out the extra variable.
 
-There are a few things to notice here.
-First, when writing out projective polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
+% Move this to nearer the start?
+When writing homogeneous polynomials, we use uppercase letters to distinguish them from affine variables and make the context clear.
 We also use $X$, $Y$ and $Z$ (and also $x$ and $y$) as the three variables when dealing with the projective plane (uppercase) and the affine part thereof (lowercase).
 
 To summarise, it is possible to move to (homogenisation) and from (dehomogenisation) the projective plane with regards to both points and polynomials.
@@ -160,7 +167,7 @@ In this way, it is possible to `see' the affine part of projective curves $F$ by
 The reverse is also true, as the parallel lines given by $2x - 3y + 1 = 0$ and $2x - 3y - 3 = 0$ in $\an[2]$, intersect in the projective plane at the point [3,-2,0].
 This is because, when homogenised with respect to $Z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y - 3Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,2,0]$.
 As we would expect, this is a point at infinity, since $Z=0$.
-\subsubsection{Projective Curves}
+\subsubsection{Projective Curves and Projective Geometry}
 Now that the concepts of homogenisation and dehomogenisation have been established, we introduce a few more ideas necessary for understanding the main subject matter.
 From now on, we also limit ourselves to the projective plane $\pn[2]$.
 
@@ -174,7 +181,12 @@ For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ an
 The first two have degree 3, the third, degree 2.
 
 \begin{definition}
-	A singular point on a curve $F$ is a point where all partial derivatives $F_X$, $F_Y$ and $F_Z$ vanish. A point that is not a singular point is called a regular point.
+	Intersection multiplicity.
+\end{definition}
+
+\begin{definition}
+	A singular point on a curve $F$ is a point where all partial derivatives $F_X$, $F_Y$ and $F_Z = 0$.
+	A point that is not a singular point is called a regular point.
 \end{definition}
 Two good examples of projective curves with singular points are provided by the \emph{cusp} $C : Y^2Z - X^3$ and the \emph{node} $N : Y^2Z - X^3 - X^2Z$, which are illustrated in \cref{cuspandnode}.
 \begin{figure}[htbp]
@@ -190,7 +202,7 @@ We can see that the point $[0,0,1]$ (the origin in the affine plane) is a singul
 	&C_Y = 2YZ,\qquad &&N_Y = 2YZ\\
 	&C_Z = Y^2,\qquad &&N_Z = Y^2 -X^2,
 \end{alignat*}
-and all partial derivatives vanish at zero.
+and all partial derivatives vanish at $[0,0,1]$.
 
 Singular points are important to consider as they are the points where there is no sensible notion of the tangent to a curve.
 The importance of this will become apparent later on.
@@ -206,7 +218,8 @@ In this case, we have $L : -X - Z = 0$, or $L: X + Z = 0$.
 As alluded to before, being able to find tangent lines plays an important part in our upcoming material.
 
 \begin{definition}
-	A curve that contains one or more singular points is a singular curve. Otherwise, the curve is regular.
+	A curve that contains one or more singular points is a singular curve.
+	Otherwise, the curve is regular.
 \end{definition}
 
 \begin{definition}
@@ -215,3 +228,6 @@ As alluded to before, being able to find tangent lines plays an important part i
 
 Flexes are important points to consider in our upcoming chapters...
 % example of flex on a curve
+\begin{definition}
+	A projective transformation...
+\end{definition}

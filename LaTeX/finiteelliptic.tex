@@ -1,8 +1,9 @@
-\subsubsection{The Reduction mod $p$ Map}
+\subsubsection{Elliptic curves over finite fields}
 Now that the groundwork for elliptic curves has been laid, we are ready to address the main subject matter, that of elliptic curves over finite fields.
-As stressed before, we restrict our attention to finite fields of the form $\zn[p]$, the integers modulo a prime $p$.
-We will also take all of our curves to be in Weierstrass form from here out, and only look at the affine parts of the curves.
-%
+As stressed before, we restrict our attention to finite fields $\fp$ of the form $\zn[p]$, the integers modulo a prime $p$.
+% Weierstrass or normal form?
+We also take all curves to be in Weierstrass form from here out, and only look at the affine parts of the curves.
+The underlying field $k$ of $\an$ and $\pn$ we now take to be $\fp$ instead of $\C$ for the rest of the document, unless otherwise specified.
 % FF<-0:28
 % 
 % # curve is y^2 = 4x^3 + 2x + 1
@@ -20,10 +21,12 @@ We will also take all of our curves to be in Weierstrass form from here out, and
 % }
 % 
 % plot(xpoints,ypoints,xlab="x",ylab="y")
-
-Instead of taking points on an elliptic curve $E$ in $\pn[2]$ as usual, we simply take curves with coefficients in $\fp$ and solutions in $\fp \times \fp$.
-The visible part of the curve is therefore represented by a collection of points in $\fp \times \fp$, with an additional point at infinity $\pai$ at $[0,1,0]$.
-\Cref{finitecurve} gives an example of a curve over a finite field.
+% 
+% Instead of taking points on an elliptic curve $E$ in $\pn[2]$ as usual, we simply take curves with coefficients in $\fp$ and solutions in $\fp \times \fp$.
+Therefore we now have $E:y^2 = x^3 + $ , andthe visible part of an elliptic curve $E$ is represented by a collection of points in $\an[2](\fp)$.
+% finish this
+The point at infinity $\pai$ remains on the curve at $[0,1,0]$.
+\Cref{finitecurve} gives a visual example of a curve over a finite field.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.5]{../Figures/finiteellipticcurve.png}
