@@ -21,23 +21,25 @@ Therefore, there are no singular points on the curve $F$ and it is indeed an ell
 
 We list some basic properties of elliptic curves.
 \begin{theorem}
-	Let $F$ be a regular projective curve of degree at least 3. Then $F$ has at least one flex in $\pn[2]$.
+	Let $F$ be a regular projective curve of degree at least 3.
+	Then $F$ has at least one flex in $\pn[2]$.
 \end{theorem}
 \begin{proof}
-	I can't seem to find a proof of this anywhere. % What on earth to do about this?
+	There is a proof in \cite{bix2006}...
 \end{proof}
+\subsubsection{Bézout's theorem}
+This is Bézout's theorem.
 \subsubsection{The Addition Law on Elliptic Curves}
-% Bezout near here
 Our interest in elliptic curves is mainly concentrated on a special property of theirs.
 It is possible to turn the set of points of an elliptic curve $E$ into a group by introducing a special addition law that satisfies all of the group axioms.
 We do not prove this in this document but direct readers to \cite{silverman2009}.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.5]{../Figures/addition.png}
+	\includegraphics[scale=0.3]{../Figures/ellipticaddition.png}
 	\caption{The chord-tangent composition law on an elliptic curve}
-	\label{chord-tangent}
+	\label{ellipticaddition}
 \end{figure}
-The addition rests upon the so-called `chord-tangent~law', which is illustrated in \cref{chord-tangent}.
+The addition rests upon the so-called `chord-tangent~law', which is illustrated in \cref{ellipticaddition}.
 % chord tangent example?
 Since an elliptic curve is cubic and regular, by definition, every line intersects it with multiplicity exactly three.
 This means that given two points (not necessarily distinct), the line on which those points lie (or the tangent line to the curve at the point, if the points are the same) will intersect the curve in exactly one other place.
@@ -60,8 +62,8 @@ The following theorem is useful when working with elliptic curves.
 \begin{theorem}
 	For any elliptic curve given by a polynomial $F$, there exist projective transformations which put $F$ into one of the following forms:
 	\begin{itemize}
-		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = X^3 + aX^2Z + bXZ^2 + cZ^3$
-		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = 4X^3 - pXZ^2 - qZ^3$
+		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = X^3 + aX^2Z + bXZ^2 + cZ^3$ for some $a,b,c\in k$
+		\item $Y^2Z - G(X,Z) = 0$ where $G(X,Z) = 4X^3 - pXZ^2 - qZ^3$ for some $p,q\in k$
 	\end{itemize}
 	In either form, the curve is regular if and only if $g(x)$ (the dehomogenisation of $G(X,Z)$) has no repeated roots.
 	The point $\pai = [0,1,0]$ is the unique point at infinity on the curve, and is a flex.
