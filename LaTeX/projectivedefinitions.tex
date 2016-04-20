@@ -3,7 +3,7 @@ The main object of interest in this subsection is the projective plane.
 Before we introduce it, though, we begin with a prerequisite definition.
 
 \begin{definition}
-	Let $k$ be an algebraically closed field. Define affine $n$-space, or $\an$, to be the set of all $n$-tuples, or points,
+	Let $k$ be a field. Define affine $n$-space, or $\an$, to be the set of all $n$-tuples, or points,
 	$$\an = \{ (a_1,a_2,\ldots,a_n) | a_i \in k\}.$$
 \end{definition}
 
@@ -21,17 +21,8 @@ In affine $n$-space, it is possible to define \emph{affine curves} in the follow
 % unfinished diagram
 \begin{figure}[htbp]
 	\centering
-	\begin{tikzpicture}[scale=0.5,domain=-5:5]
-		% axes
-		\draw[->] (-5,0) -- (5,0);
-		\draw[->] (0,-5) -- (0,5);
-		\node [right] at (5,0) {$x$};
-		\node [right] at (0,5) {$y$};
-		% graph
-		\draw 
-		plot (\x, {\x});
-	\end{tikzpicture}
-	\caption{The affine curve $x^3 - 2xy = 0$ in the visible part of $\an[2]$}
+	\includegraphics[scale=0.3]{../Figures/affineexample.jpg}
+	\caption{The affine curve $x^3 - 2xy + 4y = 0$ in the visible part of $\an[2]$}
 	\label{affinecurveexample}
 \end{figure}
 
@@ -150,21 +141,24 @@ In this way, it is possible to `see' the affine part of projective curves $F$ by
 		\draw[->] (0,-5) -- (0,5);
 		\node [right] at (5,0) {$x$};
 		\node [right] at (0,5) {$y$};
+		% grid
+		\draw[help lines] (-4.9,-4.9) grid (4.9,4.9);
 		% lines
 		\draw 
 		plot (\x, {0.5*\x+1});
 		\draw 
-		plot (\x, {0.5*\x+4});
+		plot (\x, {0.5*\x-3});
 		% annotation
 		\draw[dashed,->]
-		plot (\x, {0.5*\x+2.5});
-		\node [right] at (5,5) {[3,-2,0]};
+		plot (\x, {0.5*\x-1});
+		\node [right] at (5,1.5) {[3,-2,0]};
+		\node [left,white] at (-5,1.5) {[3,-2,0]};
 	\end{tikzpicture}
-	\caption{The intersection of $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$}
+	\caption{The intersection of $2x - 3y + 1 = 0$ and $2x - 3y - 3 = 0$}
 	\label{euclidean-intersection}
 \end{figure}
-The reverse is also true, as the parallel lines given by $2x - 3y + 1 = 0$ and $2x - 3y + 4 = 0$ in $\an[2]$, intersect in the projective plane at the point [3,-2,0].
-This is because, when homogenised with respect to $Z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y + 4Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,2,0]$.
+The reverse is also true, as the parallel lines given by $2x - 3y + 1 = 0$ and $2x - 3y - 3 = 0$ in $\an[2]$, intersect in the projective plane at the point [3,-2,0].
+This is because, when homogenised with respect to $Z$, the curves are given by $2X - 3Y + Z = 0$ and $2X - 3Y - 3Z = 0$, which are clearly satisfied by $[X,Y,Z] = [3,2,0]$.
 As we would expect, this is a point at infinity, since $Z=0$.
 \subsubsection{Projective Curves}
 Now that the concepts of homogenisation and dehomogenisation have been established, we introduce a few more ideas necessary for understanding the main subject matter.
@@ -185,17 +179,9 @@ The first two have degree 3, the third, degree 2.
 Two good examples of projective curves with singular points are provided by the \emph{cusp} $C : Y^2Z - X^3$ and the \emph{node} $N : Y^2Z - X^3 - X^2Z$, which are illustrated in \cref{cuspandnode}.
 \begin{figure}[htbp]
 	\centering
-	\begin{tikzpicture}[scale=0.5,domain=-5:5]
-		% axes
-		\draw[->] (-5,0) -- (5,0);
-		\draw[->] (0,-5) -- (0,5);
-		\node [right] at (5,0) {$x$};
-		\node [right] at (0,5) {$y$};
-		% graph
-		\draw 
-		plot (\x, {\x});
-	\end{tikzpicture}
-	\caption{The cusp and node in the visible part of $\an[2]$}
+	\includegraphics[scale=0.25]{../Figures/cusp.jpg}
+	\includegraphics[scale=0.25]{../Figures/node.jpg}
+	\caption{The cusp (left) and node (right) in the visible part of $\an[2]$}
 	\label{cuspandnode}
 \end{figure}
 We can see that the point $[0,0,1]$ (the origin in the affine plane) is a singular point on both curves, since
