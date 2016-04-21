@@ -1,11 +1,27 @@
 Elliptic curves over finite fields also appear in \emph{elliptic curve cryptography}.
-This term refers to multiple schemes of cryptography, all of which rely on elliptic curves over finite fields.
-Common to all schemes is the difficulty of the \emph{discrete logarithm problem}, in much the same way that schemes like RSA rely on the difficulty of factoring large integers.
-The discrete logarithm problem is stated as follows:
+This term refers to multiple schemes of public-key cryptography, all of which rely on elliptic curves over finite fields.
+Here, public-key cryptography refers to cryptography schemes like RSA, where the encryption key $f$ can be made public, as long as the decryption key $f^{-1}$ is kept private.
+This differs from classical private-key cryptosystems where the encryption key is either the same as the decryption key or else allows easy calculation of it, and therefore must be kept secret.
 
-Given $a,b \in \fp$, find $m$ such that $a^m \equiv b \mod p$.
+Common to all schemes is the difficulty of the \emph{elliptic curve discrete logarithm problem}, in much the same way that schemes like RSA rely on the difficulty of factoring large integers.
 
-Clearly the requirement to work in $\fp$ is important, otherwise $m = \log_a(b)$ and the question is trivial.
+Before we introduce the elliptic curve discrete logarithm problem comes the more general \emph{discrete logarithm problem}.
+The discrete logarithm problem, or DLP, is stated as follows:
+$$\text{Given }a,b \in \fp,\text{ find } m \text{ such that } a^m \equiv b \mod p.$$
+Clearly the requirement to work mod $p$ is important, otherwise $m = \log_a b$ and the question is trivial.
+
 The problem can be refactored in terms of elliptic curves by considering two distinct points $P$ and $Q$ on a curve $E$, and considering the following.
+$$\text{Given }P,Q \in E(\fp),\text{ find } m \text{ such that } mP = Q.$$
+This is the elliptic curve discrete logarithm problem, or ECDLP.
+An important assumption is that such an $m$ exists, as in general it will not.
 
-Given $P,Q \in E(\fp)$, find $m$ such that $mP = Q$.
+Of course, given enough time it is possible to calculate $2P,3P,\ldots$ until one finds that $nP = Q$ for some $n\in\N$, but as the size of the finite field grows larger this trivial method becomes impractical.
+Currently, the only approach to improve upon this naïve method of counting is by using a collision algorithm as detailed in \cite{tate2013}, but this still takes approximately $\sqrt{p}$ steps to solve the ECDLP.
+There are faster methods in certain special cases of the ECDLP, but none which solve the problem for \emph{any} given curve.
+
+This sets elliptic curves aside from other groups, where the analogues of the DLP can be solved more quickly.
+For example, in $\zn$, one can use the extended euclidean algorithm as described before to solve
+$$ma \equiv b \mod n$$
+in at most $2\log n$ steps, which allows efficient solutions for even large $n$.
+The important detail, then, is that the ECDLP is much harder than other versions of the DLP, and so this means that finite fields of smaller order may be used than in other systems.
+This lends itself well to any situation where minimising data storage is important, and is one of the main benefits of using elliptic curve cryptography.
