@@ -88,11 +88,11 @@ Since $-1=(-1)^3$, $-1 \in R$ and $R = -R$, which implies that $S=-S$ and $T=-T$
 Now that we have our partition of $\fp$, we can reason about $M_p$, the object of interest in this proof.
 First, though, we introduce a new notation.
 For $X,Y,Z \subset \fp$:
-$$[X,Y,Z] = |\{(x,y,z) | x\in X,\quad y\in Y,\quad z\in Z\quad \text{and} \quad x+y+z=0\}|$$
+$$[X,Y,Z] = |\{(x,y,z)\ |\ x\in X,\quad y\in Y,\quad z\in Z\quad \text{and} \quad x+y+z=0\}|$$
 For simplicity, we will sometimes write $[XYZ]$ instead of $[X,Y,Z]$.
 Note that this is different to writing homogenous coordinates in the projective plane!
 
-The symbol $[;]$ has a number of useful properties, such as:
+The symbol $[\;]$ has a number of useful properties, such as:
 \begin{align*}
 	[XY(Z\cup W)] &= [XYZ] + [XYW]\quad \si Z\cap W = \emptyset\\
 	[XYZ] &= [aX, aY, aZ]\quad \for a\neq0\\
@@ -100,7 +100,16 @@ The symbol $[;]$ has a number of useful properties, such as:
 \end{align*}
 These properties are important and we will use them later to manipulate our initial expression for $M_p$.
 
-Now, if $xyz\neq0$, then the number of ways of writing $0$ as a sum of non-zero cubes is $[RRR]$, simply by the definitions of the symbol $[;]$ and the set $R$.
+For the first property, observe that if $Z\cap W = \emptyset$, then let $[XYZ] = z$ and $[XYW] = w$.
+$[XY(Z\cup W)]$ will have $z$ elements that lie in $X\times Y \times Z$, and $w$ that lie in $X\times Y \times W$.
+Since $Z\cap W = \emptyset$, none of these elements will lie in both $X\times Y \times Z$ and $X\times Y \times W$, and so we see that the $z+w$ elements are exactly those that contribute to $[XY(Z\cup W)]$.
+
+For the second, notice that by definition,
+$$[aX, aY, aZ] = |\{(x,y,z)\ |\ x\in X,\quad y\in Y,\quad z\in Z\quad \text{and} \quad ax+ay+az = 0\}|.$$
+The requirement $ax+ay+az=0 \iff a(x+y+z) = 0$ and since $a\neq0$, $x+y+z = 0$.
+The final property follows from the commutativity of addition and by definition of $[\;]$.
+
+Now, if $xyz\neq0$, then the number of ways of writing $0$ as a sum of non-zero cubes is $[RRR]$, simply by the definitions of the symbol $[\;]$ and the set $R$.
 But each element of $R$ has three distinct cube roots, and so there are $(3 \times 3 \times 3) [RRR] = 27[RRR]$ solutions of $x^3 + y^3 + z^3 = 0$ of the form $(x,y,z)$ where $xyz \neq 0$.
 But since we are working in the projective plane, scalar multiples of the same point are in fact the same point, so we have to divide by $p-1$ for all of the non-zero multiples in $\fp$, which gives
 $$\frac{27[RRR]}{p-1} = \frac{27[RRR]}{3m} = \frac{9[RRR]}{m}$$
@@ -115,7 +124,7 @@ This covers all cases, and so we have established that
 M_p = \frac{9[RRR]}{m} + 9 = 9 \left(\frac{[RRR]}{m}+1\right) \label{g_initial}
 \end{equation}
 The rest of the proof now relies on modifying this expression until we have the stated result.
-First of all, we use some properties of $[;]$ to simplify \eqref{g_initial}.
+First of all, we use some properties of $[\;]$ to simplify \eqref{g_initial}.
 
 To begin with, recall that $\fp = {0} \cup R \cup S \cup T$, a disjoint union.
 Also, notice that $[RR\fp] = m^2$, since there are $m$ choices for each element of $R$, say $r_1$ and $r_2$, and then let the element of $\fp$ be $-r_1r_2$.

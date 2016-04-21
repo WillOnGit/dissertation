@@ -23,7 +23,13 @@ and then calculate $a^{500} = A_2 \times A_4 \times A_5 \times A_6 \times A_7 \t
 As the numbers involved grow larger, the time savings over the trivial method become enormous, as this is an $O(\log_2(k))$ algorithm, and it is this algorithm which we shall use in our arithmetic.
 
 \subsubsection{Fermat's Little Theorem}
-Fermat's little theorem here.
+Fermat's little theorem is a useful result in number theory that can (sometimes) be used to prove that a number is composite.
+\begin{theorem}
+	If $p$ is prime, then
+	$$2^{p-1} \equiv 1 \mod p.$$
+\end{theorem}
+Thus if we calculate $2^{n-1} \mod n$ for some $n\in\N$ and find that it does not equal 1, then we know that $n$ is composite
+The converse statement is not true, however, and so we see that $2^{n-1} \equiv 1 \mod n$ is a necessary but not sufficient condition for $n$ to be prime.
 
 \subsubsection{Lenstra's algorithm}
 Now we are ready to introduce Lenstra's algorithm, which is essentially an improvement on the older $p-1$ algorithm created by John Pollard \cite{tate2013,pollard1974}:
