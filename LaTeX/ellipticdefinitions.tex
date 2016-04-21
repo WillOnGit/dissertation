@@ -23,12 +23,22 @@ We list some basic properties of elliptic curves.
 \begin{theorem}
 	Let $F$ be a regular projective curve of degree at least 3.
 	Then $F$ has at least one flex in $\pn[2]$.
+	\label{flex-existence}
 \end{theorem}
 \begin{proof}
-	There is a proof in \cite{bix2006}...
+	We do not prove this theorem, but instead refer readers to \cite[§12]{bix2006} for more information.
 \end{proof}
 \subsubsection{Bézout's theorem}
-This is Bézout's theorem.
+Before we go into more detail on elliptic curves, we require an important theorem of Bézout.
+\begin{theorem}
+	Let $F$ and $G$ be curves in $\pn(k)$ of degree $d_F$ and $d_G$ respectively.
+	Suppose that $k$ is algebraically closed, $F$ and $G$ have no common factors and we count each intersection point with its intersection multiplicity.
+	Then $F \cap G$ has intersection multiplicity $= d_F d_G$.
+	\label{bezouts-theorem}
+\end{theorem}
+This is \emph{Bézout's theorem}, which is a fundamental result in projective geometry.
+Each assumption of Bézout's theorem is important, as each is required for the theorem to hold.
+This is one reason why we take the base field $k$ of affine and projective space to be $\C$.
 \subsubsection{The Addition Law on Elliptic Curves}
 Our interest in elliptic curves is mainly concentrated on a special property of theirs.
 It is possible to turn the set of points of an elliptic curve $E$ into a group by introducing a special addition law that satisfies all of the group axioms.
