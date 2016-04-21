@@ -181,11 +181,23 @@ For example, the polynomial equations $X^3-YZ^2=0$, $13X^2Z + Y^3 + 4XYZ = 0$ an
 The first two have degree 3, the third, degree 2.
 
 \begin{definition}
-	Intersection multiplicity.
+	Let $F$ be a curve in $\pn[2]$ and $P=[a,b,c]$ be a point on $F$.
+	Let $L$ be a line through $P$ with parametrisation
+	$$\varphi(S,T) = SP + TQ = [Sa+Tu,Sb+Tv,Sc+Tw]$$
+	for another point $Q$ on $L$.
+	The \emph{intersection multiplicity} of $L$ and $F$ at $P$ is the multiplicity of $\varphi(1,0)$ as a solution of $F \circ \varphi = 0$, that is, the largest index $i$ of $T$ such that $T^i$ is a factor of $F \circ \varphi = 0$
+	The intersection is \emph{multiple} if the intersection multiplicity is greater than one, else it is \emph{regular}.
+	\label{intersection-multiplicity}
 \end{definition}
+The concept of intersection multiplicity appears frequently in projective geometry, as we will see later.
 
+We give an example of explicitly calculating the intersection multiplicity between the curve $F: YZ^2-X^3=0$ and the line $Y=0$ at the point $P = [0,0,1]$.
+Let $Q = [1,0,1]$ such that $L$ has the parametrisation
+$$L : [S,T] \mapsto [T,0,S].$$
+Then $F(T,0,S) = 0\times S^2 - T^3 = -T^3$, and since $T^3$ is a factor, the intersection has multiplicity 3.
 \begin{definition}
-	A singular point on a curve $F$ is a point where all partial derivatives $F_X$, $F_Y$ and $F_Z = 0$.
+	A singular point on a curve $F$ is a point $P$ where all partial derivatives $F_X$, $F_Y$ and $F_Z = 0$.
+	An alternative characterisation is that the intersection multiplicity of a line and $F$ at $P$ is always greater than one.
 	A point that is not a singular point is called a regular point.
 \end{definition}
 Two good examples of projective curves with singular points are provided by the \emph{cusp} $C : Y^2Z - X^3$ and the \emph{node} $N : Y^2Z - X^3 - X^2Z$, which are illustrated in \cref{cuspandnode}.
@@ -206,7 +218,6 @@ and all partial derivatives vanish at $[0,0,1]$.
 
 Singular points are important to consider as they are the points where there is no sensible notion of the tangent to a curve.
 The importance of this will become apparent later on.
-An alternative characterisation of a singular point is that the intersection multiplicity of a line and the curve at that point is always greater than one.
 
 Supposing that a point on a curve is regular, and therefore has a tangent.
 It is possible to find the equation of the line by examining the partial derivatives of the curve.
@@ -226,8 +237,20 @@ As alluded to before, being able to find tangent lines plays an important part i
 	A \emph{flex} is a point $P$ on a curve $F$ where the tangent to $F$ at $P$ intersects $F$ with multiplicity at least 3.
 \end{definition}
 
-Flexes are important points to consider in our upcoming chapters...
-% example of flex on a curve
+The importance of flexes will become apparent in the next subsection.
+Notice that the intersection of $F : Y^2Z - X^3 = 0$ and $Y=0$ that we calculated in \cref{intersection-multiplicity} is a flex of $F$, since it has intersection multiplicity 3.
 \begin{definition}
-	A projective transformation...
+	A projective transformation is a map $\pi : \pn[2] \rightarrow \pn[2]$ represented by a matrix
+	$$\Pi = \left(
+		\begin{matrix}
+			\pi_{11} & \pi_{21} & \pi_{31}\\
+			\pi_{12} & \pi_{22} & \pi_{32}\\
+			\pi_{13} & \pi_{23} & \pi_{33}
+		\end{matrix}
+	\right).
+	$$
 \end{definition}
+To find the image $P'$ of a point $P = [X,Y,Z]$ under the projective transformation $\pi$, we simply calculate $P' = \Pi [X,Y,Z]^{\mathrm{T}}$.
+Since we work in the projective plane, and therefore homogeneous coordinates, two projective transformations $\pi$ and $\pi'$ are the same if and only if $\exists\lambda\in k$ such that $\Pi = \Pi'$.
+
+We do not go into detail about projective transformations, but merely introduce them for their utility; the existence of projective transformations often allows simplifying assumptions to made about curves and points in the projective plane.
