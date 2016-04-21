@@ -42,6 +42,8 @@ Now we are ready to introduce Lenstra's algorithm:
 % But because it is composite, we know that $\fp[N]$ will not be a proper field, as some elements will not have multiplicative inverses.
 % If we attempt to calculate the inverses of these elements with the euclidean algorithm, we will be unable to, as they will not be coprime with $N$.
 % But this very calculation will give us a non-trivial divisor of $N$, so it will not matter that we cannot calculate the inverses.
+Here, $k$ simply refers to an exponent in $\N$, instead of the field associated with affine and projective space.
+
 When calculating $kP$, we take a similar approach to the modular exponentiation algorithm, in that instead of calculating the $k$-fold sum $\underbrace{P+P+\ldots+P}_{k\text{ summands}}$, we calculate the binary expansion of $k$ and write
 $$k = a_0 2^0 + a_1 2^1 + \ldots + a_i 2^i + \ldots + a_n 2^n,$$
 where $n\in\N$ and each $a_i$ is either $0$ or $1$. It follows that
