@@ -1,4 +1,3 @@
-% Don't forget to talk about how you spent ages writing a ======= implementation of the alg!
 \subsubsection{The modular exponentiation algorithm}
 Before we introduce Lenstra's elliptic curve factorisation algorithm, a prerequisite algorithm, the modular exponentiation algorithm.
 This, along with the euclidean algorithm, is one of the two dependencies that Lenstra's algorithm requires.
@@ -32,7 +31,8 @@ Thus if we calculate $2^{n-1} \mod n$ for some $n\in\N$ and find that it does no
 The converse statement is not true, however, and so we see that $2^{n-1} \equiv 1 \mod n$ is a necessary but not sufficient condition for $n$ to be prime.
 
 \subsubsection{Lenstra's algorithm}
-Now we are ready to introduce Lenstra's algorithm, which is essentially an improvement on the older $p-1$ algorithm created by John Pollard \cite{tate2013,pollard1974}:
+Now we are ready to introduce Lenstra's algorithm.
+First published in \cite{lenstra1987}, the algorithm is essentially an improvement on the older $p-1$ algorithm created by John Pollard \cite{tate2013,pollard1974}:
 \begin{definition}
 	Lenstra's algorithm goes as follows to factor a composite integer $N$:
 	\begin{itemize}
@@ -44,10 +44,7 @@ Now we are ready to introduce Lenstra's algorithm, which is essentially an impro
 		\item Continue until one of the additions fails.
 	\end{itemize}
 \end{definition}
-% What we are doing is taking an integer $N$ that we know is composite and attempting to use it as the modulus in a finite field $\fp[N]$.
-% But because it is composite, we know that $\fp[N]$ will not be a proper field, as some elements will not have multiplicative inverses.
-% If we attempt to calculate the inverses of these elements with the euclidean algorithm, we will be unable to, as they will not be coprime with $N$.
-% But this very calculation will give us a non-trivial divisor of $N$, so it will not matter that we cannot calculate the inverses.
+A python implementation of lenstra's algorithm is included in \cref{codeappendix}.
 Here, $k$ simply refers to an exponent in $\N$, instead of the field associated with affine and projective space.
 
 When calculating $kP$, we take a similar approach to the modular exponentiation algorithm, in that instead of calculating the $k$-fold sum $\underbrace{P+P+\ldots+P}_{k\text{ summands}}$, we calculate the binary expansion of $k$ and write

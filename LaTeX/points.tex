@@ -1,7 +1,7 @@
 \subsubsection{Naïve counting}
-If one has taken an elliptic curve $E$ defined by $f(x,y)=0$ over a finite field $\fp$, a fundamental question to ask is about how many points there are on the curve.
-We have already established that there is still a point at infinity on the curve (in Weierstrass form, at $[0,1,0]$), but apart from that, there are a maximum of $p^2$ points. % Careful here
-The naïve approach, of course, is to simply run through all sets of points $(x,y) \in \fp \times \fp$ and test whether each point satisfies $f(x,y)=0$, but depending on the size of the field, this may or may not be practical.
+If one has taken an elliptic curve $E$ defined by $y^2 = f(x)$ over a finite field $\fp$, a fundamental question to ask is about how many points there are on the curve.
+We have already established that there is still a point at infinity on the curve (in Weierstrass form, at $[0,1,0]$), but apart from that, there are a maximum of $p^2$ points.
+The naïve approach, of course, is to simply run through all sets of points $(x,y) \in \an[2](\fp)$ and test whether each point satisfies $y^2 = f(x)$, but depending on the size of the field, this may or may not be practical.
 Despite this, a basic example of this method of counting is ran through in \cref{hasseweil}.
 
 There are a few approaches possible to take when considering the number of points on an elliptic curve over a finite field, though, and we will cover a number of them.
@@ -12,7 +12,10 @@ The theorem was initially proved for elliptic curves by Helmut Hasse in \cite{ha
 \input{h-w.tex}
 \subsubsection{Schoof's algorithm}
 The Hasse-Weil estimate gives an important bound on the number of rational points over an elliptic curve over a finite field, but otherwise does not give the exact number.
-For this purpose, in 1985, René Schoof published a paper detailing what is known as \emph{Schoof's algorithm} \cite{schoof1995}.
+For this purpose, in 1985, René Schoof published a paper detailing what is known as \emph{Schoof's algorithm}.
 This was the first algorithm of its kind to run in polynomial time, as opposed to exponential time.
+
+We do not go into detail on the algorithm, but mention it for its theoretical significance.
+Those who are interested can refer to Schoof's paper detailing the algorithm, \cite{schoof1995}.
 \subsubsection{Gauss' theorem}
 \input{gauss.tex}
