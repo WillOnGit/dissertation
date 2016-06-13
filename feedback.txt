@@ -1,0 +1,32 @@
+DISSERTATION JOINT REPORT
+Will Bolton - Cubic curves over finite fields - MATH491
+
+Content and Understanding: A
+Excellent: the student has a very good understanding of the algebraic
+and geometric notions involved in the subject: ring theory (euclidean
+algorithm, finite fields), projective and affine geometries, elliptic
+curves as curves and as group. 
+A few flaws on p. 11 (typos in projective transformations and example
+intersection multiplicity), p. 20-21, 24 in the long proof of Gauss'
+theorem (can be condoned!), and p. 26 Def 2.2 (C is not homogeneous and
+the notions "successful", "fails" need be explained). 
+Excellent choice of material and selected original examples, presented
+in concise fashion which also shows a very good understanding of the key
+results. 
+
+Organisation and Style: A
+Excellent: the structure of the report is very good, and so is the use
+of LaTeX, Python (Lenstra's algorithm), and TikZ, Geogebra, OS X's
+Grapher and even R (figures).
+Very good writing style, pleasant to read, excellent grammar and
+spelling. Occasional typos.
+Good range of references (including an Annals of Math. and 3 Crelle's
+papers!).
+
+Initiative: A
+From the start the student has worked independently, and our weekly
+meetings allowed us to go together over the needed abstract algebra
+which was Will's weakest point. 
+From the dissertation, he has caught up with the theory, and exceeded my
+expectations in implementing Lenstra's algorithm using Python and
+working out his own examples. 
